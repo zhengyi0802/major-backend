@@ -14,24 +14,17 @@ class MainVideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
 
-        $pname = $request->input("adminlteSearch");
-        if ($pname != null) {
-            $project = Project::where('name', 'LIKE', $pname)->first();
-            if ($project) {
-                $proj_id = $project->id;
-            }
+        if ($proj_id > 0) {
+            $mainvideos = MainVideo::where('main_videos.proj_id', $proj_id)->get();
+        } else {
+            $mainvideos = MainVideo::get();
         }
 
-        if ($proj_id == 0) {
-            $mainvideos = MainVideo::get();
-        } else {
-            $mainvideos = MainVideo::where('main_videos.proj_id', $proj_id)->get();
-        }
         return view('mainvideos.index', compact('mainvideos'));
     }
 

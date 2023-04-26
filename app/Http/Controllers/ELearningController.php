@@ -24,12 +24,8 @@ class ELearningController extends Controller
         $user = auth()->user();
         $proj_id = $user->proj_id;
 
-        if ($proj_id == 0) {
-            $elearnings = ELearning::get();
-        } else {
-            $elearnings = ELearning::where('proj_id', $proj_id)->get();
+        $elearnings = ELearning::get();
 
-        }
         return view('elearnings.index',compact('elearnings'));
     }
 

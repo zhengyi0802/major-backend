@@ -14,23 +14,17 @@ class LogoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
 
-        $pname = $request->input("adminlteSearch");
-        if ($pname != null) {
-            $project = Project::where('name', 'LIKE', $pname)->first();
-            if ($project) {
-                $proj_id = $project->id;
-            }
-        }
         if ($proj_id > 0) {
             $logos = Logo::where('proj_id', $proj_id)->get();
         } else {
             $logos = Logo::get();
         }
+
         return view('logos.index', compact('logos'));
     }
 

@@ -17,24 +17,17 @@ class BulletinController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
 
-        $pname = $request->input("adminlteSearch");
-        if ($pname != null) {
-            $project = Project::where('name', 'LIKE', $pname)->first();
-            if ($project) {
-                $proj_id = $project->id;
-            }
+        if ($proj_id > 0) {
+            $bulletins = Bulletin::where('proj_id', $proj_id)->get();
+        } else {
+            $bulletins = Bulletin::get();
         }
 
-        if ($proj_id == 0) {
-            $bulletins = Bulletin::get();
-        } else {
-            $bulletins = Bulletin::where('proj_id', $proj_id)->get();
-         }
         return view('bulletins.index', compact('bulletins'));
     }
 

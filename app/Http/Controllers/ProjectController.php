@@ -16,7 +16,14 @@ class ProjectController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $projects = Project::get();
+        $proj_id = $user->proj_id;
+
+        if ($proj_id > 0) {
+            $projects = Project::where('id', $proj_id)->get();
+        } else {
+            $projects = Project::get();
+        }
+
         return view('projects.index',compact('projects'));
     }
 

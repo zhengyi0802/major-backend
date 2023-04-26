@@ -19,18 +19,10 @@ class AppMenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $user = auth()->user();
-        $pname = $request->input("adminlteSearch");
         $proj_id = $user->proj_id;
-
-        if ($pname != null) {
-            $project = Project::where('name', 'LIKE', $pname)->first();
-            if ($project) {
-                $proj_id = $project->id;
-            }
-        }
 
         if ($proj_id > 0) {
            $appmenus = AppMenu::where('proj_id', $proj_id)->get();

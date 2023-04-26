@@ -21,11 +21,8 @@ class BulletinItemController extends Controller
        $user = auth()->user();
        $proj_id = $user->proj_id;
 
-       if ($proj_id == 0) {
-           $bulletinitems = BulletinItem::get();
-       } else {
-           $bulletinitems = BulletinItem::where('proj_id', $proj_id)->get();
-       }
+       $bulletinitems = BulletinItem::get();
+
        return view('bulletinitems.index', compact('bulletinitems'));
     }
 

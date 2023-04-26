@@ -19,24 +19,17 @@ class ELearningCatagoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
 
-        $pname = $request->input("adminlteSearch");
-        if ($pname != null) {
-            $project = Project::where('name', 'LIKE', $pname)->first();
-            if ($project) {
-                $proj_id = $project->id;
-            }
+        if ($proj_id > 0) {
+            $elearningcatagories = ELearningCatagory::where('proj_id', $proj_id)->get();
+        } else {
+            $elearningcatagories = ELearningCatagory::get();
         }
 
-        if ($proj_id == 0) {
-            $elearningcatagories = ELearningCatagory::get();
-        } else {
-            $elearningcatagories = ELearningCatagory::where('proj_id', $proj_id)->get();
-        }
         return view('elearningcatagories.index',compact('elearningcatagories'));
     }
 

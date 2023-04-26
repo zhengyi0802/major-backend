@@ -20,22 +20,15 @@ class StartpageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
-        $pname = $request->input("adminlteSearch");
-        if ($pname != null) {
-            $project = Project::where('name', 'LIKE', $pname)->first();
-            if ($project) {
-                $proj_id = $project->id;
-            }
-        }
-        //$pname = Request::get("q");
-        if ($proj_id == 0 ) {
-            $startpages = Startpage::get();
-        } else {
+
+        if ($proj_id > 0 ) {
             $startpages = Startpage::where('proj_id', $proj_id)->get();
+        } else {
+            $startpages = Startpage::get();
         }
 
         return view('startpages.index',compact('startpages'));

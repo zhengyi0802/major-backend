@@ -18,21 +18,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $numbers = 500;
         $user = auth()->user();
         $proj_id = $user->proj_id;
-        $search = $request->input("adminlteSearch");
-        if ($search != null) {
-            $product = $this->search($search);
-            if ($product != null) {
-                $records = ProductRecord::where('product_id', $product->id)->get();
 
-                return view('products.show', compact('product'))
-                       ->with(compact('records'));
-            }
-        }
         if ($proj_id == 0) {
            $products = Product::latest()->paginate($numbers);
         } else {

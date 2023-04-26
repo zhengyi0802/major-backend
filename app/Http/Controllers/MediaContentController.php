@@ -22,11 +22,9 @@ class MediaContentController extends Controller
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
-        if ($proj_id == 0) {
-            $mediacontents = MediaContent::get();
-        } else {
-            $mediacontents = MediaContent::where('media_catagories.proj_id', $proj_id)->get();
-        }
+
+        $mediacontents = MediaContent::get();
+
         return view('mediacontents.index',compact('mediacontents'));
     }
 

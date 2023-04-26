@@ -227,7 +227,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav'       => true,
+            'topnav'       => false,
         ],
 /*
         [

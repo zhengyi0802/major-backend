@@ -20,10 +20,11 @@ class MarqueeController extends Controller
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
-        if ($proj_id == 0) {
-            $marquees = Marquee::get();
-        } else {
+
+        if ($proj_id > 0) {
             $marquees = Marquee::where('proj_id', $proj_id)->get();
+        } else {
+            $marquees = Marquee::get();
         }
 
         return view('marquees.index', compact('marquees'));

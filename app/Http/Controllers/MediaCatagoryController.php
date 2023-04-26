@@ -19,24 +19,17 @@ class MediaCatagoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
 
-        $pname = $request->input("adminlteSearch");
-        if ($pname != null) {
-            $project = Project::where('name', 'LIKE', $pname)->first();
-            if ($project) {
-                $proj_id = $project->id;
-            }
+        if ($proj_id > 0) {
+            $mediacatagories = MediaCatagory::where('proj_id', $proj_id)->get();
+        } else {
+            $mediacatagories = MediaCatagory::get();
         }
 
-        if ($proj_id == 0) {
-            $mediacatagories = MediaCatagory::get();
-        } else {
-            $mediacatagories = MediaCatagory::where('a.proj_id', $proj_id)->get();
-        }
         return view('mediacatagories.index',compact('mediacatagories'));
     }
 
