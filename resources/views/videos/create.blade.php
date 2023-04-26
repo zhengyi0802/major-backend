@@ -17,9 +17,7 @@
         <div class="pull-left">
             <h1>{{ __('tables.new') }}</h1>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('videos.index') }}">{{ __('tables.back') }}</a>
-        </div>
+        @include('layouts.bcak')
     </div>
 </div>
 

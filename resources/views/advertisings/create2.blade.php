@@ -12,9 +12,7 @@
         <div class="pull-left">
             <h1>{{ __('tables.new') }}</h1>
         </div>
-        <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('frontend_views.edit', $project->id) }}">{{ __('tables.back') }}</a>
-        </div>
+        @include('layouts.back')
     </div>
 </div>
 

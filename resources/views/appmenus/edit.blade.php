@@ -19,9 +19,7 @@
             <div class="pull-left">
                 <h1>{{ __('tables.edit') }}</h1>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('appmenus.index') }}">{{ __('tables.back') }}</a>
-            </div>
+            @include('layouts.back')
         </div>
     </div>
 
