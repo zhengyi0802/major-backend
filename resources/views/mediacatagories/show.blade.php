@@ -16,9 +16,7 @@
     </div>
     <div class="row">
         <div class="card-group col-md-12">
-            <div class="card col-md-2">
-                <a class="btn btn-primary" href="{{ route('mediacatagories.index') }}">{{ __('tables.back') }}</a>
-            </div>
+            @include('layouts.back')
             @if (auth()->user()->rol != 'operator')
             <div class="card col-md-2">
                @include('mediacatagories.popwindow')

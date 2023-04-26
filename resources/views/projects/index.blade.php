@@ -20,5 +20,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+
     @include('projects.table')
+
 @endsection
