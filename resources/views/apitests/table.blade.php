@@ -13,7 +13,7 @@ $config = [
     'language' => [ 'url' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Chinese.json' ],
 ];
 @endphp
-<x-adminlte-datatable id="apitest-table" :heads="$heads" :config="$config" theme="info" striped hoverable>
+<x-adminlte-datatable id="apitest-table" :heads="$heads" :config="$config" theme="info" head-theme="dark" striped hoverable border>
   @foreach($apitests as $apitest)
   <tr>
     <td>{!! $apitest->id !!}</td>

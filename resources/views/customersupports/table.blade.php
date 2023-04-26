@@ -15,7 +15,7 @@ $config = [
     'language' => [ 'url' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Chinese.json' ],
 ];
 @endphp
-<x-adminlte-datatable id="project-table" :heads="$heads" :config="$config" theme="info" striped hoverable >
+<x-adminlte-datatable id="project-table" :heads="$heads" :config="$config" theme="info" head-theme="dark" striped hoverable bordered>
        @foreach ($customersupports as $customersupport)
         <tr>
             <td>{{ $customersupport->id }}</td>

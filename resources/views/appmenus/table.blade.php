@@ -15,7 +15,7 @@ $config = [
     'language' => [ 'url' => '//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Chinese.json' ],
 ];
 @endphp
-<x-adminlte-datatable id="appmenu-table" :heads="$heads" :config="$config" theme="info" striped hoverable >
+<x-adminlte-datatable id="appmenu-table" :heads="$heads" :config="$config" theme="info" head-theme="dark" striped hoverable bordered>
         @foreach ($appmenus as $appmenu)
         <tr>
             <td>{{ $appmenu->id }}</td>
