@@ -24,6 +24,7 @@ class CreateMarqueesTable extends Migration
             $table->string('url')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

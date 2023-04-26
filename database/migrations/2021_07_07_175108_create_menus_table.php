@@ -22,6 +22,7 @@ class CreateMenusTable extends Migration
             $table->string('type', 50)->default('video');
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

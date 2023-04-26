@@ -22,6 +22,7 @@ class CreateBulletinsTable extends Migration
             $table->boolean('status')->default(true);
             $table->datetime('date')->nullable();
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

@@ -24,6 +24,7 @@ class CreateOneKeyInstallersTable extends Migration
             $table->string('url')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

@@ -18,6 +18,7 @@ class CreateProductCatagoriesTable extends Migration
             $table->string('name');
             $table->text('descriptions')->nullable();
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

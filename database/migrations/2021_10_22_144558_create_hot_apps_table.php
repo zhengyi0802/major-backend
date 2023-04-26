@@ -19,6 +19,7 @@ class CreateHotAppsTable extends Migration
             $table->integer('apk_id')->default(0);
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

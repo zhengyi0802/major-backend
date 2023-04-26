@@ -29,6 +29,7 @@ class CreateApkManagersTable extends Migration
             $table->json('proj_id')->nullable();
             $table->json('mac_addresses')->nullable();
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

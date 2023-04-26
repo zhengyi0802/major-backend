@@ -22,11 +22,8 @@ use App\Http\Controllers\VoiceSettingController;
 use App\Http\Controllers\BulletinController;
 use App\Http\Controllers\BulletinItemController;
 use App\Http\Controllers\MarqueeController;
-use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ApkManagerController;
-use App\Http\Controllers\ResellerController;
 use App\Http\Controllers\ManagerController;
-use App\Http\Controllers\MemberController;
 use App\Http\Controllers\QACatagoryController;
 use App\Http\Controllers\QAListController;
 use App\Http\Controllers\CustomerSupportController;
@@ -282,18 +279,12 @@ Route::resource('/elearnings', ELearningController::class);
 Route::get('/packages/query', [App\Http\Controllers\PackageController::class, 'query'])
        ->name('packages.query');
 
-Route::resource('/packages', PackageController::class);
-
 Route::get('/apkmanagers/query', [App\Http\Controllers\ApkManagerController::class, 'query'])
        ->name('apkmanagers.query');
 
 Route::resource('/apkmanagers', ApkManagerController::class);
 
 Route::resource('/managers', ManagerController::class);
-
-Route::resource('/resellers', ResellerController::class);
-
-Route::resource('/members', MemberController::class);
 
 //Route::get('/apiinterface/register', [App\Http\Controllers\ApiInterfaceController::class, 'register'])
 //       ->name('apiinterface.register');

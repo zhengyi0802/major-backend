@@ -22,6 +22,7 @@ class CreateAppManagersTable extends Migration
             $table->integer('delaytime')->default(5);
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

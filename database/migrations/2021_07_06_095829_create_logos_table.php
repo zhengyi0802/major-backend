@@ -22,6 +22,7 @@ class CreateLogosTable extends Migration
             $table->string('link_url')->nullable();
             $table->boolean('status');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

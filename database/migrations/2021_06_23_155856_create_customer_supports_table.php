@@ -24,6 +24,7 @@ class CreateCustomerSupportsTable extends Migration
             $table->string('rcapp_url')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

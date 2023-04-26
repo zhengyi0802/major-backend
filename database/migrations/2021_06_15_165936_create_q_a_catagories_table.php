@@ -20,6 +20,7 @@ class CreateQACatagoriesTable extends Migration
             $table->string('descriptions')->nullable();
             $table->boolean('status');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

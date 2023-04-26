@@ -22,6 +22,7 @@ class CreateMainVideosTable extends Migration
             $table->json('playlist_http')->nullable();
             $table->boolean('status');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

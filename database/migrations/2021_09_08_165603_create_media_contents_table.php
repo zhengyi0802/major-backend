@@ -23,6 +23,7 @@ class CreateMediaContentsTable extends Migration
             $table->string('url');
             $table->string('url_http')->nullable();
             $table->boolean('status');
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
         });
     }

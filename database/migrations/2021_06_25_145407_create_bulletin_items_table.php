@@ -21,6 +21,7 @@ class CreateBulletinItemsTable extends Migration
             $table->string('url_http')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

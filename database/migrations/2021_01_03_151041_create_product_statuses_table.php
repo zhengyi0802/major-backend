@@ -18,6 +18,7 @@ class CreateProductStatusesTable extends Migration
             $table->string('name');
             $table->text('detail')->nullable();
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

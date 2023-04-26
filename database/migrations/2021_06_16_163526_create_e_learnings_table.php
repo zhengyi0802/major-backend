@@ -24,6 +24,7 @@ class CreateELearningsTable extends Migration
             $table->string('url_http')->nullable();
             $table->boolean('status');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

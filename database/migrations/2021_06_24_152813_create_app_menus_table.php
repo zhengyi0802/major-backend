@@ -23,6 +23,7 @@ class CreateAppMenusTable extends Migration
             $table->string('url')->nullable();
             $table->boolean('status');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

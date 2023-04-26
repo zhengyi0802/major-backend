@@ -26,6 +26,7 @@ class CreateStartpagesTable extends Migration
             $table->datetime('start_time')->nullable();
             $table->datetime('stop_time')->nullable();
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

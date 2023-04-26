@@ -23,6 +23,7 @@ class CreateMediaCatagoriesTable extends Migration
             $table->string('thumbnail');
             $table->boolean('status');
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

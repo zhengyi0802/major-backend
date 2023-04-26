@@ -20,6 +20,7 @@ class CreateProductTypesTable extends Migration
             $table->text('descriptions')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 

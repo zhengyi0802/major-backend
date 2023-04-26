@@ -22,6 +22,7 @@ class CreateVoiceSettingsTable extends Migration
             $table->string('link_url')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
         });
     }
 
