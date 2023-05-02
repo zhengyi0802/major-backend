@@ -16,7 +16,7 @@ class LogMessageController extends Controller
     public function index(Request $request)
     {
         $search = $request->input("adminlteSearch");
-        $numbers = 500;
+        $numbers = 2000;
         $actions = array('start', 'info', 'error');
         if ($search != null) {
             $elements = explode(' ', $search);

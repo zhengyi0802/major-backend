@@ -16,7 +16,7 @@ class ProductRecordController extends Controller
      */
     public function index()
     {
-        $numbers = 200;
+        $numbers = 500;
 
         $records = ProductRecord::latest()->paginate($numbers);
 
