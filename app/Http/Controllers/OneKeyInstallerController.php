@@ -149,9 +149,9 @@ class OneKeyInstallerController extends Controller
         }
         if (true) {
             $apks = OnekeyInstaller::select('apk_id', 'label', 'package_name', 'thumbnail', 'url')
-                               ->where('status', true)
                                ->where('proj_id', $proj_id)
                                ->orWhere('proj_id', 0)
+                               ->where('status', true)
                                ->get();
 
             $result = array();
@@ -188,6 +188,7 @@ class OneKeyInstallerController extends Controller
     public function queryOneKeyInstaller($proj_id)
     {
        $result = null;
+       $onekeys = OneKeyInstaller::where('status', true)->get();
        $apks = AppManager::leftJoin('apk_managers', 'apk_id', 'apk_managers.id')
                          ->select('apk_managers.package_name', 'app_managers.delaytime')
                          ->where('app_managers.proj_id', $proj_id)
@@ -209,7 +210,7 @@ class OneKeyInstallerController extends Controller
             $product = Product::where('ether_mac', '=', $mac)
                               ->orWhere('wifi_mac', '=', $mac)
                               ->first();
-            //var_dump($product);
+
             if ($product) {
                 $proj_id = $product->proj_id;
                 //var_dump($proj_id);
