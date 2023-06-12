@@ -177,13 +177,11 @@ class BusinessController extends Controller
     public function update(Request $request, Business $business)
     {
        $request->validate([
-            'proj_id'      => 'required',
             'serial'       => 'required',
             'status'       => 'required',
         ]);
         $user = auth()->user();
 
-        $business->proj_id   = $request->proj_id;
         $business->serial    = $request->serial;
         $business->link_url  = $request->link_url;
         $business->intervals = $request->intervals;

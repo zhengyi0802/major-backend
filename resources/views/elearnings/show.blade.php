@@ -20,7 +20,7 @@
          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>{{ __('elearnings.catagory') }} :</strong>
-                {{ $elearning->catagory }}
+                {{ $elearning->catagory->name }}
             </div>
          </div>
          <div class="col-xs-12 col-sm-12 col-md-12">

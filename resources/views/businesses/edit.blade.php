@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group" id="proj_id" name="proj_id" value="$project->id" >
-                    <strong>{{ __('businesses.project') }} : {{ $business->project }}</strong>
+                    <strong>{{ __('businesses.project') }} : {{ $business->project->name }}</strong>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
