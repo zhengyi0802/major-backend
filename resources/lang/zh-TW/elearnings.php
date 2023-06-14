@@ -14,6 +14,8 @@
         'e_video'        => '外部影片',
         'youtube'        => 'YouTube連結',
         'youtube_id'     => 'YouTube影片ID',
+        'ppt'            => 'PPT檔',
+        'pdf'            => 'PDF檔',
         'status'         => '狀態',
     ];
 

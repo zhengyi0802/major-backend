@@ -88,6 +88,8 @@
                         <option value="e_video" {{ ($elearning->mime_type == 'e_video') ? "selected" : null }} >{{ __('elearnings.e_video') }}</option>
                         <option value="youtube" {{ ($elearning->mime_type == 'youtube') ? "selected" : null }} >{{ __('elearnings.youtube') }}</option>
                         <option value="youtube_id" {{ ($elearning->mime_type == 'youtube_id') ? "selected" : null }} >{{ __('elearnings.youtube_id') }}</option>
+                        <option value="ppt" {{ ($elearning->mime_type == 'ppt') ? "selected" : null }} >{{ __('elearnings.ppt') }}</option>
+                        <option value="pdf" {{ ($elearning->mime_type == 'pdf') ? "selected" : null }} >{{ __('elearnings.pdf') }}</option>
                     </select>
                 </div>
             </div>

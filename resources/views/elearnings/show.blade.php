@@ -52,6 +52,10 @@
                     {{ __('elearnings.youtube') }}
                 @elseif ($elearning->mime_type == 'youtube_id')
                     {{ __('elearnings.youtube_id') }}
+                @elseif ($elearning->mime_type == 'ppt')
+                    {{ __('elearnings.ppt') }}
+                @elseif ($elearning->mime_type == 'pdf')
+                    {{ __('elearnings.pdf') }}
                 @endif
             </div>
          </div>

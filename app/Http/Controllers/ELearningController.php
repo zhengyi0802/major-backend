@@ -79,7 +79,7 @@ class ELearningController extends Controller
         $elearning->status      = $request->status;
         $elearning->user_id     = $user->id;
 
-        if ($request->mime_type == 'i_video') {
+        if ($request->mime_type == 'i_video' || $request->mime_type == 'ppt' || $request->mime_type == 'pdf') {
             if ($request->file('file')) {
                 $file = MediaUpload::fileUpload($request);
                 if ($file == null) {
@@ -87,7 +87,9 @@ class ELearningController extends Controller
                 }
                 $elearning->url = env('APP_URL').$file->file_path;
                 $elearning->url_http = env('VIDEOS_URL').'/'.$file->name;
-                $this->saveVideo($file);
+                if ($request->mime_type == 'i_video') {
+                    $this->saveVideo($file);
+                }
             }
         }
 
@@ -152,7 +154,7 @@ class ELearningController extends Controller
         $user = auth()->user();
         $data['user_id'] = $user->id;
 
-        if ($request->mime_type == 'i_video') {
+        if ($request->mime_type == 'i_video' || $request->mime_type= 'ppt' || $request->mime_type == 'pdf') {
             if ($request->file('file')) {
                 $file = MediaUpload::fileUpload($request);
                 if ($file == null) {
@@ -160,7 +162,9 @@ class ELearningController extends Controller
                 }
                 $data['url'] = env('APP_URL').$file->file_path;
                 $data['url_http'] = env('VIDEOS_URL').'/'.$file->name;
-                $this->saveVideo($file);
+                if ($request->mime_type == 'i_video') {
+                    $this->saveVideo($file);
+                }
             }
         }
 

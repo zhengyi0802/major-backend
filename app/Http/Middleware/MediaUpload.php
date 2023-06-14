@@ -22,7 +22,6 @@ class MediaUpload
 */
         $user = auth()->user()->id;
         $filename = 'u'.$user.'-'.time().'.'.$request->file->getClientOriginalExtension();
-        //echo $request->mime_type;
 
         $file = new File();
         if ($request->file()) {
@@ -30,14 +29,14 @@ class MediaUpload
                 $filePath = $request->file('file')->storeAs('images', $filename, 'public');
             } else if ($request->mime_type == 'i_video') {
                 $filePath = $request->file('file')->storeAs('videos', $filename, 'public');
+            } else if ($request->mime_type == 'ppt' || $request->mime_type == 'pdf') {
+                $filePath = $request->file('file')->storeAs('docs', $filename, 'public');
             }
             $file->name= $filename;
             $file->file_path = '/storage/'.$filePath;
             $file->save();
-            //$this->saveVideo($request->mime_type, $file);
         }
         return $file;
-
     }
 
 }

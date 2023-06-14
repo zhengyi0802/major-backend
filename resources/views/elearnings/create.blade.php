@@ -87,6 +87,8 @@
                     <option value="e_video">{{ __('elearnings.e_video') }}</option>
                     <option value="youtube">{{ __('elearnings.youtube') }}</option>
                     <option value="youtube_id">{{ __('elearnings.youtube_id') }}</option>
+                    <option value="ppt">{{ __('elearnings.ppt') }}</option>
+                    <option value="pdf">{{ __('elearnings.pdf') }}</option>
                 </select>
             </div>
         </div>
