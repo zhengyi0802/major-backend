@@ -243,8 +243,8 @@ class ELearningCatagoryController extends Controller
         foreach ($elearnings as $elearning) {
                 $item = array(
                         'catagory_id' => $elearning->catagory_id,
-                        'name'        => md5($elearning->name),
-                        'password'    => $elearning->password,
+                        'name'        => $elearning->name,
+                        'password'    => is_null($elearning->password) ? null : md5($elearning->password),
                         'description' => $elearning->description,
                         'type'        => $elearning->mime_type,
                         'url'         => $elearning->url,
@@ -268,7 +268,7 @@ class ELearningCatagoryController extends Controller
                     //'id'          => $elearningcatagory->id,
                     'parent_id'   => $elearningcatagory->parent_id,
                     'name'        => $elearningcatagory->name,
-                    'password'    => md5($elearningcatagory->password),
+                    'password'    => is_null($elearningcatagory->password) ? null : md5($elearningcatagory->password),
                     'type'        => $elearningcatagory->type,
                     'description' => $elearningcatagory->description,
                     'thumbnail'   => $elearningcatagory->thumbnail,

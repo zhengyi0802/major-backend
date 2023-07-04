@@ -29,8 +29,10 @@ class MediaUpload
                 $filePath = $request->file('file')->storeAs('images', $filename, 'public');
             } else if ($request->mime_type == 'i_video') {
                 $filePath = $request->file('file')->storeAs('videos', $filename, 'public');
-            } else if ($request->mime_type == 'ppt' || $request->mime_type == 'pdf') {
-                $filePath = $request->file('file')->storeAs('videos', $filename, 'public');
+            } else if ($request->mime_type == 'ppt') {
+                $filePath = $request->file('file')->storeAs('videos/ppt', $filename, 'public');
+            } else if ($request->mime_type == 'pdf') {
+                $filePath = $request->file('file')->storeAs('videos/pdf', $filename, 'public');
             }
             $file->name= $filename;
             $file->file_path = '/storage/'.$filePath;

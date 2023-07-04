@@ -249,7 +249,7 @@ class ELearningController extends Controller
                 $item = array(
                         'catagory_id' => $elearning->catagory_id,
                         'name'        => $elearning->name,
-                        'password'    => md5($elearning->password),
+                        'password'    => is_null($elearning->password) ? null : md5($elearning->password),
                         'description' => $elearning->description,
 			'thumbnail'   => $elearning->preview,
                         'type'        => $elearning->mime_type,
@@ -275,7 +275,7 @@ class ELearningController extends Controller
                     //'id'          => $elearningcatagory->id,
                     'parent_id'   => $elearningcatagory->parent_id,
                     'name'        => $elearningcatagory->name,
-                    'password'    => md5($elearningcatagory->password),
+                    'password'    => is_null($elearningcatagory->password) ? null : md5($elearningcatagory->password),
                     'type'        => $elearningcatagory->type,
                     'description' => $elearningcatagory->description,
                     'thumbnail'   => $elearningcatagory->thumbnail,
