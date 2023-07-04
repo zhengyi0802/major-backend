@@ -22,7 +22,8 @@
         "laravel/ui": "^3.2",
         "ncjoes/office-converter": "^1.0",
         "pbmedia/laravel-ffmpeg": "^7.8",
-        "tufanbarisyildirim/php-apk-parser": "^2.0"
+        "tufanbarisyildirim/php-apk-parser": "^2.0",
+        "zanysoft/laravel-zip": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

@@ -6,7 +6,7 @@ use App\Http\Middleware\MediaUpload;
 use App\Models\Project;
 use App\Models\Product;
 use App\Models\ProductQuery;
-use App\Models\File;
+use App\Models\MediaFile;
 use App\Models\Startpage;
 use App\Models\Video;
 use App\Models\User;

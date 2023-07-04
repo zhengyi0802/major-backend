@@ -177,6 +177,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Alaouy\Youtube\YoutubeServiceProvider::class,
         ProtoneMedia\LaravelFFMpeg\Support\ServiceProvider::class,
+        ZanySoft\Zip\ZipServiceProvider::class,
     ],
 
     /*
@@ -231,6 +232,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
         'FFMpeg' => ProtoneMedia\LaravelFFMpeg\Support\FFMpeg::class,
+        'Zip' => ZanySoft\Zip\Facades\Zip::class,
     ],
 
 ];

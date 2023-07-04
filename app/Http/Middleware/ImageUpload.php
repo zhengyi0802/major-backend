@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
-use App\Models\File;
+use App\Models\MediaFile;
 
 class ImageUpload
 {
@@ -17,7 +17,7 @@ class ImageUpload
             'image' => 'required|mimes:jpeg,jpg,png,gif'
         ]);
 
-        $fileModel = new File;
+        $fileModel = new MediaFile;
 
         if($req->file()) {
             $fileName = time().'_'.$req->image->getClientOriginalName();
@@ -25,7 +25,6 @@ class ImageUpload
 
             $fileModel->name = time().'_'.$req->image->getClientOriginalName();
             $fileModel->file_path = '/storage/' . $filePath;
-            $fileModel->save();
 
             return $fileModel;
         }

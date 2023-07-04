@@ -47,6 +47,10 @@ class ComposerStaticInit982398af6556ca224cf94c885626eebc
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'Z' => 
+        array (
+            'ZanySoft\\Zip\\' => 13,
+        ),
         'W' => 
         array (
             'Whoops\\' => 7,
@@ -203,6 +207,10 @@ class ComposerStaticInit982398af6556ca224cf94c885626eebc
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'ZanySoft\\Zip\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zanysoft/laravel-zip/src',
         ),
         'Whoops\\' => 
         array (
@@ -662,6 +670,8 @@ class ComposerStaticInit982398af6556ca224cf94c885626eebc
         'ApkParser\\XmlParser' => __DIR__ . '/..' . '/tufanbarisyildirim/php-apk-parser/lib/ApkParser/XmlParser.php',
         'App\\Console\\Commands\\ParsePackage' => __DIR__ . '/../..' . '/app/Console/Commands/ParsePackage.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Converter\\OfficeConverter' => __DIR__ . '/../..' . '/app/Converter/OfficeConverter.php',
+        'App\\Converter\\OfficeConverterException' => __DIR__ . '/../..' . '/app/Converter/OfficeConverterException.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\AdvertisingController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdvertisingController.php',
         'App\\Http\\Controllers\\ApiInterfaceController' => __DIR__ . '/../..' . '/app/Http/Controllers/ApiInterfaceController.php',
@@ -737,7 +747,6 @@ class ComposerStaticInit982398af6556ca224cf94c885626eebc
         'App\\Models\\CustomerSupport' => __DIR__ . '/../..' . '/app/Models/CustomerSupport.php',
         'App\\Models\\ELearning' => __DIR__ . '/../..' . '/app/Models/ELearning.php',
         'App\\Models\\ELearningCatagory' => __DIR__ . '/../..' . '/app/Models/ELearningCatagory.php',
-        'App\\Models\\File' => __DIR__ . '/../..' . '/app/Models/File.php',
         'App\\Models\\Help' => __DIR__ . '/../..' . '/app/Models/Help.php',
         'App\\Models\\HelpContent' => __DIR__ . '/../..' . '/app/Models/HelpContent.php',
         'App\\Models\\Homepage' => __DIR__ . '/../..' . '/app/Models/Homepage.php',
@@ -751,6 +760,7 @@ class ComposerStaticInit982398af6556ca224cf94c885626eebc
         'App\\Models\\Marquee' => __DIR__ . '/../..' . '/app/Models/Marquee.php',
         'App\\Models\\MediaCatagory' => __DIR__ . '/../..' . '/app/Models/MediaCatagory.php',
         'App\\Models\\MediaContent' => __DIR__ . '/../..' . '/app/Models/MediaContent.php',
+        'App\\Models\\MediaFile' => __DIR__ . '/../..' . '/app/Models/MediaFile.php',
         'App\\Models\\Menu' => __DIR__ . '/../..' . '/app/Models/Menu.php',
         'App\\Models\\More' => __DIR__ . '/../..' . '/app/Models/More.php',
         'App\\Models\\OneKeyInstaller' => __DIR__ . '/../..' . '/app/Models/OneKeyInstaller.php',
@@ -6161,6 +6171,10 @@ class ComposerStaticInit982398af6556ca224cf94c885626eebc
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\SystemFacade' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/SystemFacade.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+        'ZanySoft\\Zip\\Facades\\Zip' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/Facades/Zip.php',
+        'ZanySoft\\Zip\\Zip' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/Zip.php',
+        'ZanySoft\\Zip\\ZipManager' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/ZipManager.php',
+        'ZanySoft\\Zip\\ZipServiceProvider' => __DIR__ . '/..' . '/zanysoft/laravel-zip/src/ZipServiceProvider.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
