@@ -14,6 +14,7 @@
         'e_video'        => '外部影片',
         'youtube'        => 'YouTube連結',
         'youtube_id'     => 'YouTube影片ID',
+        'password'       => '密碼(最多6位數字)',
         'status'         => '狀態',
     ];
 

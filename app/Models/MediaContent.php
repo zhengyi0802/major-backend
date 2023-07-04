@@ -17,6 +17,7 @@ class MediaContent extends Model
         'mime_type',
         'url',
         'url_http',
+        'password',
         'status',
         'user_id',
     ];

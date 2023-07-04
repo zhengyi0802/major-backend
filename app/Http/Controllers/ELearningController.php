@@ -73,6 +73,7 @@ class ELearningController extends Controller
 
         $elearning->catagory_id = $request->catagory_id;
         $elearning->name        = $request->name;
+        $elearning->password    = $request->password;
         $elearning->description = $request->description;
         $elearning->mime_type   = $request->mime_type;
         $elearning->url         = $request->url;
@@ -248,6 +249,7 @@ class ELearningController extends Controller
                 $item = array(
                         'catagory_id' => $elearning->catagory_id,
                         'name'        => $elearning->name,
+                        'password'    => md5($elearning->password),
                         'description' => $elearning->description,
 			'thumbnail'   => $elearning->preview,
                         'type'        => $elearning->mime_type,
@@ -273,6 +275,7 @@ class ELearningController extends Controller
                     //'id'          => $elearningcatagory->id,
                     'parent_id'   => $elearningcatagory->parent_id,
                     'name'        => $elearningcatagory->name,
+                    'password'    => md5($elearningcatagory->password),
                     'type'        => $elearningcatagory->type,
                     'description' => $elearningcatagory->description,
                     'thumbnail'   => $elearningcatagory->thumbnail,

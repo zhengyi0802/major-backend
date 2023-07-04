@@ -16,6 +16,7 @@ class ELearningCatagory extends Model
         'name',
         'description',
         'thumbnail',
+        'password',
         'status',
         'user_id',
     ];

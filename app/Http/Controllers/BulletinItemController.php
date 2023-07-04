@@ -28,7 +28,9 @@ class BulletinItemController extends Controller
 
     public function index2(Bulletin $bulletin)
     {
-       return view('bulletinitems.index2', compact('bulletinitems'));
+       $bulletinitems = $bulletin->items;
+       return view('bulletinitems.index2', compact('bulletinitems'))
+              ->with(compact('bulletin'));
     }
 
     /**

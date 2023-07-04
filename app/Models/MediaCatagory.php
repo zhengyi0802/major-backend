@@ -17,6 +17,7 @@ class MediaCatagory extends Model
         'keywords',
         'description',
         'thumbnail',
+        'password',
         'status',
         'user_id',
     ];

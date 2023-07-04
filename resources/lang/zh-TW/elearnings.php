@@ -16,6 +16,7 @@
         'youtube_id'     => 'YouTube影片ID',
         'ppt'            => 'PPT檔',
         'pdf'            => 'PDF檔',
+        'password'       => '密碼(最多6位數字)',
         'status'         => '狀態',
     ];
 

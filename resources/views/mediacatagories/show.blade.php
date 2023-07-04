@@ -52,6 +52,12 @@
          </div>
          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>{{ __('mediacatagories.password') }} :</strong>
+                {{ $mediacatagory->password }}
+            </div>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>{{ __('mediacatagories.keywords') }} :</strong>
                 {{ $mediacatagory->keywords }}
             </div>

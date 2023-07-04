@@ -17,7 +17,7 @@
         <div class="pull-left">
             <h1>{{ __('tables.new') }}</h1>
         </div>
-        @include('layouts.bcak')
+        @include('layouts.back')
     </div>
 </div>
 

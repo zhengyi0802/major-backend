@@ -14,6 +14,7 @@
         'type_catagory'  => '目錄',
         'type_contents'  => '影片',
         'type_keywords'  => '關鍵字',
+        'password'       => '密碼(最多6位數字)',
         'status'         => '狀態',
         'root'           => '根目錄',
     ];

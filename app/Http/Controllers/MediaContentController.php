@@ -70,6 +70,7 @@ class MediaContentController extends Controller
 
         $mediacontent->catagory_id = $request->catagory_id;
         $mediacontent->name        = $request->name;
+        $mediacontent->password    = $request->password;
         $mediacontent->description = $request->description;
         $mediacontent->mime_type   = $request->mime_type;
         $mediacontent->url         = $request->url;
@@ -243,6 +244,7 @@ class MediaContentController extends Controller
                 $item = array(
                         'catagory_id' => $mediacontent->catagory_id,
                         'name'        => $mediacontent->name,
+                        'password'    => md5($mediacontent->password),
                         'description' => $mediacontent->description,
 			'thumbnail'   => $mediacontent->preview,
                         'type'        => $mediacontent->mime_type,
@@ -268,6 +270,7 @@ class MediaContentController extends Controller
                     //'id'          => $mediacatagory->id,
                     'parent_id'   => $mediacatagory->parent_id,
                     'name'        => $mediacatagory->name,
+                    'password'    => md5($mediacatagory->password),
                     'type'        => $mediacatagory->type,
                     'keywords'    => $mediacatagory->keywords,
                     'description' => $mediacatagory->description,
