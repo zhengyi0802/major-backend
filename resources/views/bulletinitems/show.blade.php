@@ -34,6 +34,8 @@
                      {{ __('bulletinitems.type_evideo') }}
                 @elseif ($bulletinitem->mime_type == "youtube")
                      {{ __('bulletinitems.type_youtube') }}
+                @elseif ($bulletinitem->mime_type == "web")
+                     {{ __('bulletinitems.type_web') }}
                 @endif
             </div>
          </div>

@@ -55,6 +55,7 @@
                     <option value="i_video" >{{ __('bulletinitems.type_ivideo') }}</option>
                     <option value="e_video" >{{ __('bulletinitems.type_evideo') }}</option>
                     <option value="youtube" >{{ __('bulletinitems.type_youtube') }}</option>
+                    <option value="web" >{{ __('bulletinitems.type_web') }}</option>
                 </select>
             </div>
             <script>

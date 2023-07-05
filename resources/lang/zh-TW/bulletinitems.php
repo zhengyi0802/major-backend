@@ -12,6 +12,7 @@
         'type_ivideo'    => '上傳影片',
         'type_evideo'    => '外部影片',
         'type_youtube'   => 'YouTubeID',
+        'type_web'       => '網站',
     ];
 
 

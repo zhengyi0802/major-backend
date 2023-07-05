@@ -86,7 +86,7 @@ class ELearningController extends Controller
                 if ($file == null) {
                     return back()->with('video', $fileName);
                 }
-                $elearning->url = env('APP_URL').$file->file_path;
+                $elearning->url = env('APP_URL').$file->name;
                 $elearning->url_http = env('VIDEOS_URL').'/'.$file->name;
                 if ($request->mime_type == 'i_video') {
                     $this->saveVideo($file);
@@ -241,6 +241,7 @@ class ELearningController extends Controller
             }
         } else if ($request->input('id')) {
             $proj_id = $request->input('id');
+            $product = null;
         }
 
         $elearnings = ELearning::where('status', true)->orderBy('id','desc')->get();
@@ -313,7 +314,7 @@ class ELearningController extends Controller
         }
 
         $response = json_encode($data[0]['list']);
-        if ($product && ProductQuery::enabled()) {
+        if (!is_null($product) && ProductQuery::enabled()) {
             $record = array(
                       'product_id'  => $product->id,
                       'query'       => $request->fullUrl(),
