@@ -86,7 +86,7 @@ class ELearningController extends Controller
                 if ($file == null) {
                     return back()->with('video', $fileName);
                 }
-                $elearning->url = env('APP_URL').$file->name;
+                $elearning->url = env('APP_URL').$file->file_path;
                 $elearning->url_http = env('VIDEOS_URL').'/'.$file->name;
                 if ($request->mime_type == 'i_video') {
                     $this->saveVideo($file);

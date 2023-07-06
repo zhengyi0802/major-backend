@@ -34,18 +34,24 @@ class MediaUpload
             if ($request->mime_type == 'image') {
                 $filePath = $request->file('file')->storeAs('images', $filename_orig, 'public');
                 $filename = $filename_orig;
+                $file->name= $filename;
+                $file->file_path = '/storage/'.$filePath;
             } else if ($request->mime_type == 'i_video') {
                 $filePath = $request->file('file')->storeAs('videos', $filename_orig, 'public');
                 $filename = $filename_orig;
+                $file->name= $filename;
+                $file->file_path = '/storage/'.$filePath;
             } else if ($request->mime_type == 'ppt') {
                 $filePath = $request->file('file')->storeAs('videos/ppt', $filename_orig, 'public');
                 $filename = MediaUpload::convert($fileName, $filename_orig, $filename_jpg, 'ppt');
+                $file->name= $filename;
+                $file->file_path = $filename;
             } else if ($request->mime_type == 'pdf') {
                 $filePath = $request->file('file')->storeAs('videos/pdf', $filename_orig, 'public');
                 $filename = $this->convert($fileName, $filename_orig, $filename_jpg, 'pdf');
+                $file->name= $filename;
+                $file->file_path = '/storage/'.$filePath;
             }
-            $file->name= $filename;
-            $file->file_path = '/storage/'.$filePath;
         }
         return $file;
     }
