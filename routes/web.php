@@ -276,8 +276,8 @@ Route::get('elearnings/query', [App\Http\Controllers\ELearningController::class,
 
 Route::resource('/elearnings', ELearningController::class);
 
-Route::get('/packages/query', [App\Http\Controllers\PackageController::class, 'query'])
-       ->name('packages.query');
+//Route::get('/packages/query', [App\Http\Controllers\PackageController::class, 'query'])
+//       ->name('packages.query');
 
 Route::get('/apkmanagers/query', [App\Http\Controllers\ApkManagerController::class, 'query'])
        ->name('apkmanagers.query');

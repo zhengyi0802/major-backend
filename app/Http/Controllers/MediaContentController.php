@@ -22,9 +22,13 @@ class MediaContentController extends Controller
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
-
-        $mediacontents = MediaContent::get();
-
+        if ($proj_id == 0) {
+            $mediacontents = MediaContent::get();
+        } else {
+            $mediacatagories = MediaCatagory::select('id')->where('proj_id', $proj_id)->get();
+            $catagories = $mediacatagories->pluck('id');
+            $mediacontents = MediaContent::whereIn('catagory_id', $catagories)->get();
+        }
         return view('mediacontents.index',compact('mediacontents'));
     }
 
@@ -122,9 +126,23 @@ class MediaContentController extends Controller
      */
     public function edit(MediaContent $mediacontent)
     {
+/*
         $mediacatagories = MediaCatagory::where('status', true)
                                         ->where('type', 'contents')
                                         ->get();
+*/
+        $user = auth()->user();
+        $proj_id = $user->proj_id;
+        if ($proj_id == 0) {
+            $mediacatagories = MediaCatagory::where('status', true)
+                                         ->where('type', 'contents')
+                                         ->get();
+        } else {
+            $mediacatagories = MediaCatagory::where('status', true)
+                                         ->where('proj_id', $proj_id)
+                                         ->where('type', 'contents')
+                                         ->get();
+         }
 
         return view('mediacontents.edit', compact('mediacontent'))
                ->with(compact('mediacatagories'));

@@ -90,7 +90,7 @@
                     <div id="div-preview">
                         @if ($bulletinitem->mime_type == 'image' )
                             <img name="preview" id="preview" src="{{ $bulletinitem->url }}">
-                        @elseif (($bulletinitem->mime_type == 'i_video') || ($bulletitem->mime_type == 'e_video'))
+                        @elseif (($bulletinitem->mime_type == 'i_video') || ($bulletinitem->mime_type == 'e_video'))
                             <video name="preview" id="preview" width="640" height="360" controls >
                                <source src="{{ $bulletinitem->url }}" type="video/mp4">
                             </video>

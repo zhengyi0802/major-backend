@@ -12,7 +12,7 @@
             <div class="pull-left">
                 <h1>{{ __('tables.edit') }}</h1>
             </div>
-            @include('layout.back')
+            @include('layouts.back')
         </div>
     </div>
 

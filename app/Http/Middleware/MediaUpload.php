@@ -48,9 +48,9 @@ class MediaUpload
                 $file->file_path = $filename;
             } else if ($request->mime_type == 'pdf') {
                 $filePath = $request->file('file')->storeAs('videos/pdf', $filename_orig, 'public');
-                $filename = $this->convert($fileName, $filename_orig, $filename_jpg, 'pdf');
+                $filename = MediaUpload::convert($fileName, $filename_orig, $filename_jpg, 'pdf');
                 $file->name= $filename;
-                $file->file_path = '/storage/'.$filePath;
+                $file->file_path = $filename;
             }
         }
         return $file;

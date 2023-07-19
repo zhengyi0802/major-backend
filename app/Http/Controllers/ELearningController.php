@@ -23,9 +23,13 @@ class ELearningController extends Controller
     {
         $user = auth()->user();
         $proj_id = $user->proj_id;
-
-        $elearnings = ELearning::get();
-
+        if ($proj_id == 0) {
+            $elearnings = ELearning::get();
+        } else {
+            $elearningcatagories = ELearningCatagory::select('id')->where('proj_id', $proj_id)->get();
+            $catagories = $elearningcatagories->pluck('id');
+            $elearnings = Elearning::whereIn('catagory_id', $catagories)->get();
+        }
         return view('elearnings.index',compact('elearnings'));
     }
 
@@ -127,9 +131,24 @@ class ELearningController extends Controller
      */
     public function edit(ELearning $elearning)
     {
+/*
         $elearningcatagories = ELearningCatagory::where('status', true)
                                                 ->where('type', 'contents')
                                                 ->get();
+*/
+        $user = auth()->user();
+        $proj_id = $user->proj_id;
+
+        if ($proj_id == 0) {
+            $elearningcatagories = ELearningCatagory::where('status', true)
+                                                ->where('type', 'contents')
+                                                ->get();
+        } else {
+            $elearningcatagories = ELearningCatagory::where('status', true)
+                                                ->where('proj_id', $proj_id)
+                                                ->where('type', 'contents')
+                                                ->get();
+        }
 
         return view('elearnings.edit', compact('elearning'))
                ->with(compact('elearningcatagories'));

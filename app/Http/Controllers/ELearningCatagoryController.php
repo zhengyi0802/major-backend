@@ -158,7 +158,7 @@ class ELearningCatagoryController extends Controller
         if ($user->role != 'operator') {
             $projects = Project::where('status', true)->get();
         } else {
-            $projects = Project::where('id', $uproj_id)->where('status', true)->get();
+            $projects = Project::where('id', $proj_id)->where('status', true)->get();
         }
 
         $elearningcatagories = ELearningCatagory::where('proj_id', $proj_id)
