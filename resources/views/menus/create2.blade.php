@@ -71,7 +71,8 @@
             <div class="form-group">
                 <strong>{{ __('menus.type') }} :</strong>
                 <select name="type" >
-                    <option value="video" selected>video</option>
+                    <option value="video" selected>[[ __('menus.type_video') }}</option>
+                    <option value="project">{{ __('menus.type_project') }}</option>
                 </select>
             </div>
         </div>

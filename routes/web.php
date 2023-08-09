@@ -307,6 +307,9 @@ Route::get('/api/queryProductStatus', [App\Http\Controllers\ApiInterfaceControll
 Route::get('/api/queryProject', [App\Http\Controllers\ApiInterfaceController::class, 'queryProject'])
        ->name('apiinterface.queryProject');
 
+Route::get('/api/selectProject', [App\Http\Controllers\ApiInterfaceController::class, 'selectProject'])
+       ->name('apiinterface.selectProject');
+
 Route::get('/api/checkdate', [App\Http\Controllers\ApiInterfaceController::class, 'checkdate'])
        ->name('apiinterface.checkdate');
 

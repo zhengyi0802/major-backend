@@ -71,7 +71,8 @@
                 <div class="form-group">
                     <strong>{{ __('menus.type') }} :</strong>
                     <select name="type">
-                       <option value="video" selected >video</option>
+                       <option value="video" {{ ($menu->type == 'video') ? "selected" : null }} >{{ __('menus.type_video') }}</option>
+                       <option value="project" {{ ($menu->type == 'project') ? "selected" : null }}>{{ __('menus.type_project') }}</option>
                     </select>
                 </div>
             </div>

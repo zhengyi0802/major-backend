@@ -73,6 +73,59 @@ class ApiInterfaceController extends Controller
         return json_encode($result);
     }
 
+    public function selectProject(Request $request)
+    {
+        $serialno  = $request->input('serialno');
+        $ether_mac = $request->input('ether_mac');
+        $wifi_mac  = $request->input('wifi_mac');
+        $mac       = $request->input('mac');
+        $project_id = $request->input('project_id');
+        $project = null;
+
+        if ($project_id != null) {
+            $project = Project::find($project_id);
+        }
+
+        if ($project == null) {
+            $err = "No Project";
+            return $err;
+        }
+
+        if ($ether_mac) {
+            $mac = str_replace(':', '', $ether_mac);
+            $mac = strtoupper($mac);
+            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+                              ->where('ether_mac', '=', $mac)
+                              ->first();
+        } else if($wifi_mac) {
+            $mac = str_replace(':', '', $wifi_mac);
+            $mac = strtoupper($mac);
+            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+                              ->where('wifi_mac', '=', $mac)
+                              ->first();
+        } else if ($serialno) {
+            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+                              ->where('serialno', '=', $serialno)
+                              ->first();
+        } else if ($mac) {
+            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+                              ->where('ether_mac', '=', $mac)
+                              ->orWhere('wifi_mac', '=', $mac)
+                              ->first();
+        }
+
+        if ($product == null) {
+                $err = "No Product";
+                return $err;
+        }
+
+        $product->proj_id = $project_id;
+        $product->save();
+
+        $resp = 'OK';
+        return $resp;
+    }
+
     public function checkdate(Request $request)
     {
         $serialno  = $request->input('serialno');

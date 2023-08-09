@@ -23,9 +23,13 @@ class BulletinController extends Controller
         $proj_id = $user->proj_id;
 
         if ($proj_id > 0) {
-            $bulletins = Bulletin::where('proj_id', $proj_id)->get();
+            $bulletins = Bulletin::where('proj_id', $proj_id)->where('status', true)->get();
         } else {
-            $bulletins = Bulletin::get();
+            if ($user->role == 'admin') {
+                $bulletins = Bulletin::get();
+            } else {
+                $bulletins = Bulletin::where('status', true)->get();
+            }
         }
 
         return view('bulletins.index', compact('bulletins'));
@@ -171,8 +175,20 @@ class BulletinController extends Controller
      */
     public function destroy(Bulletin $bulletin)
     {
-        $bulletin->delete();
+        $user = auth()->user();
 
+        if ($user->role == 'admin') {
+            $bulletinItems = BulletinItem::where('bulletin_id', $bulletin->id)->get()->delete();
+            $bulletin->delete();
+        } else {
+            $bulletin->status = false;
+            $bulletinItems = BulletinItem::where('bulletin_id', $bulletin->id)->get();
+            foreach($bulletinitems as $item) {
+                $item->status = false;
+                $item->save();
+            }
+            $bulletin->save();
+        }
         return redirect()->route('bulletins.index')
                          ->with('success','Bulletin deleted successfully');
     }

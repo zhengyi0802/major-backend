@@ -17,7 +17,7 @@ $config = [
         @foreach ($bulletinitems as $bulletinitem)
         <tr>
             <td>{{ $bulletinitem->id }}</td>
-            <td>{{ $bulletinitem->parent->title . '-' . $bulletinitem->parent->message }}</td>
+            <td>{{ ($bulletinitem->parent->title ?? '') . '-' . ($bulletinitem->parent->message ?? '') }}</td>
             <td>
               @if ($bulletinitem->mime_type == "image")
                   <img src="{{ $bulletinitem->url }}" width="320" height="180">

@@ -10,6 +10,7 @@
         'tag'            => '標籤',
         'type'           => '類型',
         'type_video'     => '影音',
+        'type_project'   => '專案',
         'status'         => '狀態',
     ];
 
