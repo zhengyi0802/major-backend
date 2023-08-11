@@ -68,18 +68,37 @@
             </script>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
+            <div class="form-group" id = "tag-video">
                 <strong>{{ __('menus.tag') }} :</strong>
                 <input type="text" name="tag" class="form-control" >
+            </div>
+            <div class="form-group" id="tag-project" style="display:none;">
+                <strong>{{ __('menus.tag') }} :</strong>
+                <select id="tag" name="tag" >
+                    @foreach($projects as $project)
+                       <option value="{{ $project->id }}">{{ $project->name }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>{{ __('menus.type') }} :</strong>
-                <select name="type" >
+                <select name="type" onchange="tagfield(this)">
                     <option value="video" selected>{{ __('menus.type_video') }}</option>
                     <option value="project">{{ __('menus.type_project') }}</option>
                 </select>
+                <script>
+                    var tagfield = function(select) {
+                        if (select.value == 'video') {
+                            document.getElementById('tag-video').style.display='';
+                            document.getElementById('tag-project').style.display='none';
+                        } else if (select.value == 'project') {
+                            document.getElementById('tag-video').style.display='none';
+                            document.getElementById('tag-project').style.display='';
+                        }
+                    };
+                </script>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
