@@ -25,10 +25,10 @@ $config = [
           <form name="project-delete-form" action="{{ route('projects.destroy', $project->id); }}" method="POST">
             @csrf
             @method('DELETE')
-            @if ($project->created_by != 1)
               <x-adminlte-button theme="primary" title="{{ __('tables.edit') }}" icon="fa fa-lg fa-fw fa-pen"
                 onClick="window.location='{{ route('projects.edit', $project->id); }}'" >
               </x-adminlte-button>
+            @if (auth()->user()->id == 1)
               <x-adminlte-button theme="danger" title="{{ __('tables.delete') }}" icon="fa fa-lg fa-fw fa-trash"
                 type="submit" >
               </x-adminlte-button>
