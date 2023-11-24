@@ -119,7 +119,6 @@ class ManagerController extends Controller
         $request->validate([
             'name'      => 'required',
             'account'   => 'required',
-            'password'  => 'required',
             'job_title' => 'required',
             'status'    => 'required',
         ]);
@@ -144,6 +143,17 @@ class ManagerController extends Controller
         //$manager->proj_id     = $request->proj_id;
         $manager->description = $request->description;
         $manager->status      = $request->status;
+        $manager->proj_id     = $request->proj_id;
+        $user->proj_id  = $request->proj_id;
+        if ($request->password != null) {
+            $user->password = Hash::make($request->password);
+        }
+        if ($request->proj_id == 0) {
+            $user->role = 'manager';
+        } else {
+            $user->role = 'operator';
+        }
+        $user->save();
         $manager->save();
 
         return redirect()->route('managers.index')

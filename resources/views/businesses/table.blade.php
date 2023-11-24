@@ -19,7 +19,7 @@ $config = [
         @foreach ($businesses as $business)
         <tr>
             <td>{{ $business->id }}</td>
-            <td>{{ $business->project->name }}</td>
+            <td>{{ ($business->project != null) ? $business->project->name : null }}</td>
             <td>{{ $business->serial+1 }}</td>
             <td><img src="{{ $business->logo_url }}" width="320px" height="180px"></td>
             <td>{{ $business->intervals }}</td>

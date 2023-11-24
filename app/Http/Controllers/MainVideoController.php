@@ -85,7 +85,7 @@ class MainVideoController extends Controller
 
     public function store2(Request $request, Project $project, MainVideo $mainvideo)
     {
-        if ($mainvideo > 0) {
+        if ($mainvideo != null) {
             return $this->update($request, $mainvideo);
         } else {
             return $this->store($request);

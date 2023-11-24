@@ -64,7 +64,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group" id = "tag-video">
                 <strong>{{ __('menus.tag') }} :</strong>
-                <input type="text" name="tag" class="form-control" value="{{ %menu->tage }}">
+                <input type="text" name="tag" class="form-control" value="{{ $menu->tag }}">
             </div>
             <div class="form-group" id="tag-project" style="display:none;">
                 <strong>{{ __('menus.tag') }} :</strong>

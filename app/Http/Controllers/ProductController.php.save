@@ -133,13 +133,13 @@ class ProductController extends Controller
         $productTypes = ProductType::get();
         $productStatuses = ProductStatus::get();
         $projects = Project::where('status', true)->get();
-/*        $mac_array = str_split($product->ether_mac, 2);
-        $ether_mac = implode(':', $mac_array);
-        $product->ether_mac = $ether_mac;
-        $mac_array1 = str_split($product->wifi_mac, 2);
-        $wifi_mac = implode(":", $mac_array1);
+        //$mac_array = str_split($product->ether_mac, 2);
+       // $ether_mac = implode(':', $mac_array);
+        //$product->ether_mac = $ether_mac;
+        //$mac_array1 = str_split($product->wifi_mac, 2);
+        //$wifi_mac = implode(":", $mac_array1);
         $product->wifi_mac = $wifi_mac;
-*/
+
         return view('products.edit', compact('product'))
                ->with(compact('productTypes'))
                ->with(compact('projects'))
@@ -157,7 +157,7 @@ class ProductController extends Controller
     {
         $user = auth()->user();
         $data = $request->all();
-        //if ($user->role == 'admin') {
+        if ($user->role == 'admin') {
             $ether_mac = str_replace(":", "", $data['ether_mac']);
             $ether_mac = strtoupper($ether_mac);
             $data['ether_mac'] = $ether_mac;
@@ -165,7 +165,7 @@ class ProductController extends Controller
             $wifi_mac = str_replace(":", "", $data['wifi_mac']);
             $wifi_mac = strtoupper($wifi_mac);
             $data['wifi_mac'] = $wifi_mac;
-        //}
+        }
 
         $product->update($data);
 

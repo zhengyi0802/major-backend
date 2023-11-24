@@ -52,7 +52,7 @@
                 <strong>{{ __('bulletinitems.type') }} :</strong>
                 <select id="mime_type" name="mime_type" onchange="changeInput(this)" >
                     <option value="image" selected >{{ __('bulletinitems.type_image') }}</option>
-                    <option value="i_video" >{{ __('bulletinitems.type_ivideo') }}</option>
+                    <option value="i_video" disabled >{{ __('bulletinitems.type_ivideo') }}</option>
                     <option value="e_video" >{{ __('bulletinitems.type_evideo') }}</option>
                     <option value="youtube" >{{ __('bulletinitems.type_youtube') }}</option>
                     <option value="web" >{{ __('bulletinitems.type_web') }}</option>

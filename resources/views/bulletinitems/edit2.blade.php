@@ -54,7 +54,7 @@
                     <strong>{{ __('bulletinitems.type') }} :</strong>
                     <select id="mime_type" name="mime_type" onchange="changeInput(this)" >
                         <option value="image" {{ ($bulletinitem->mime_type == "image") ? "selected" : null }} >{{ __('bulletinitems.type_image') }}</option>
-                        <option value="i_video" {{ ($bulletinitem->mime_type == "i_video") ? "selected" : null }} >{{ __('bulletinitems.type_ivideo') }}</option>
+                        <option value="i_video" {{ ($bulletinitem->mime_type == "i_video") ? "selected" : null }} disabled >{{ __('bulletinitems.type_ivideo') }}</option>
                         <option value="e_video" {{ ($bulletinitem->mime_type == "e_video") ? "selected" : null }} >{{ __('bulletinitems.type_evideo') }}</option>
                         <option value="youtube" {{ ($bulletinitem->mime_type == "youtube") ? "selected" : null }} >{{ __('bulletinitems.type_youtube') }}</option>
                         <option value="web" {{ ($bulletinitem->mime_type == "web") ? "selected" : null }} >{{ __('bulletinitems.type_web') }}</option>

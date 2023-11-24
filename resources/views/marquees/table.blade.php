@@ -28,7 +28,7 @@ $config = [
                     {{ __('marquees.type_all') }}
                 @endif
             </td>
-            <td>{{ $marquee->project_name ?? '' }}</td>
+            <td>{{ $marquee->project->name ?? '' }}</td>
             <td>{{ $marquee->serialno ?? '' }}</td>
             <td>{{ $marquee->content }}</td>
             <td>{{ $marquee->user->name }}</td>

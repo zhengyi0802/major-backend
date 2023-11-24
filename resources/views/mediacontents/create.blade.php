@@ -89,8 +89,8 @@
             <div class="form-group">
                 <strong>{{ __('mediacontents.mime_type') }} :</strong>
                 <select id="mime_type" name="mime_type" >
-                    <option value="i_video" selected>{{ __('mediacontents.i_video') }}</option>
-                    <option value="e_video">{{ __('mediacontents.e_video') }}</option>
+                    <option value="e_video" selected>{{ __('mediacontents.e_video') }}</option>
+                    <option value="i_video" disabled>{{ __('mediacontents.i_video') }}</option>
                     <option value="youtube">{{ __('mediacontents.youtube') }}</option>
                     <option value="youtube_id">{{ __('mediacontents.youtube_id') }}</option>
                 </select>

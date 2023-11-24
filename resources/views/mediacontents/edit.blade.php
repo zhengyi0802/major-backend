@@ -90,7 +90,7 @@
                 <div class="form-group">
                     <strong>{{ __('mediacontents.mime_type') }} :</strong>
                     <select id="mime_type" name="mime_type" >
-                        <option value="i_video" {{ ($mediacontent->mime_type == 'i_video') ? "selected" : null }} >{{ __('mediacontents.i_video') }}</option>
+                        <option value="i_video" {{ ($mediacontent->mime_type == 'i_video') ? "selected" : null }} disabled>{{ __('mediacontents.i_video') }}</option>
                         <option value="e_video" {{ ($mediacontent->mime_type == 'e_video') ? "selected" : null }} >{{ __('mediacontents.e_video') }}</option>
                         <option value="youtube" {{ ($mediacontent->mime_type == 'youtube') ? "selected" : null }} >{{ __('mediacontents.youtube') }}</option>
                         <option value="youtube_id" {{ ($mediacontent->mime_type == 'youtube_id') ? "selected" : null }} >{{ __('mediacontents.youtube_id') }}</option>

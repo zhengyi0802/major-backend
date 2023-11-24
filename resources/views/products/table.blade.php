@@ -26,9 +26,7 @@ $config = [
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">{{ __('tables.details') }}</a>
-                    @if (auth()->user()->role == "admin" || auth()->user()->role="manager")
-                        <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">{{ __('tables.edit') }}</a>
-                    @endif
+                    <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">{{ __('tables.edit') }}</a>
                     @if (auth()->user()->role == "admin")
                         @csrf
                         @method('DELETE')

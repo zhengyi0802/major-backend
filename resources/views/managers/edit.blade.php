@@ -34,7 +34,12 @@
            <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>{{ __('managers.project') }} :</strong>
-                    {{ ($manager->project!=null) ? $manager->project:__('managers.project_all') }}
+                    <select id="proj_id" name="proj_id" >
+                         <option value="0" style="background-color: blue">{{ __('managers.project_all') }}</option>
+                         @foreach ($projects as $project)
+                            <option value="{{ $project->id }}" {{ ($manager->proj_id == $project->id) ? "selected" : null }} >{{ $project->name }}</option> 
+                         @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
