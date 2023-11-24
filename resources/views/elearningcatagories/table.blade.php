@@ -19,7 +19,7 @@ $config = [
         @foreach ($elearningcatagories as $elearningcatagory)
         <tr>
             <td>{{ $elearningcatagory->id }}</td>
-            <td>{{ $elearningcatagory->project->name }}</td>
+            <td>{{ ($elearningcatagory->project) ? $elearningcatagory->project->name : null }}</td>
             <td>{{ $elearningcatagory->parent ? $elearningcatagory->parent->name : __('elearningcatagories.root') }}</td>
             <td>{{ $elearningcatagory->name }}</td>
             <td><img src="{{ $elearningcatagory->thumbnail }}" width="320px" height="180px"></td>
