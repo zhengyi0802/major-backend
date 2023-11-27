@@ -31,7 +31,7 @@ $config = [
                     <a class="btn btn-info" href="{{ route('onekeyinstallers.edit', $onekeyinstaller->id) }}">{{ __('tables.edit') }}</a>
                     @endif
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">{{ __('tables.delete') }}</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __('tables.confirm_delete') }}');">{{ __('tables.delete') }}</button>
                 </form>
             </td>
         </tr>

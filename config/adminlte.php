@@ -286,7 +286,7 @@ return [
             ],
         ],
         [   'text'    => 'videomanager',
-            'can'     => 'manager-only',
+            'can'     => 'admin-only',
             'icon'    => 'fas fa-fw fa-film',
             'submenu' => [
                [

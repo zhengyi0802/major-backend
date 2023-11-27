@@ -28,7 +28,7 @@ $config = [
                     <a class="btn btn-primary" href="{{ route('product_types.edit',$productType->id) }}">{{ __('tables.edit') }}</a>
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger">{{ __('tables.delete') }}</button>
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __('tables.confirm_delete') }}');">{{ __('tables.delete') }}</button>
                 </form>
             </td>
         </tr>
