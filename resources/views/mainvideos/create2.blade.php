@@ -60,6 +60,13 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>{{ __('mainvideos.play_random') }} :</strong>
+                <input type="radio" name="play_random" value="1">{{ __('tables.status_on') }}
+                <input type="radio" name="play_random" value="0" checked>{{ __('tables.status_off') }}
+            </div>
+         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>{{ __('mainvideos.status') }} :</strong>
                 <input type="radio" name="status" value="1" checked>{{ __('tables.status_on') }}
                 <input type="radio" name="status" value="0">{{ __('tables.status_off') }}

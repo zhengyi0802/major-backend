@@ -53,6 +53,12 @@
          </div>
          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>{{ __('mainvideos.play_random') }} :</strong>
+                {{ ($mainvideo->play_random==1) ? __('tables.status_on'):__('tables.status_off') }}
+            </div>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>{{ __('tables.creator') }} :</strong><br>
                 {{ $mainvideo->user->name }}
             </div>

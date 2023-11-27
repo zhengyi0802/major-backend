@@ -15,6 +15,7 @@
         'type_youtube_playlist'    => 'YouTube網址播放列表',
         'type_youtube_playlist_id' => 'YouTubeID播放列表',
         'type_stream'              => '直播串流',
+        'play_random'              => '列表隨機播放',
         'status'                   => '狀態',
     ];
 

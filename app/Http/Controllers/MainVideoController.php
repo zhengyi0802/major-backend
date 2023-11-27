@@ -66,6 +66,7 @@ class MainVideoController extends Controller
         $request->validate([
             'proj_id'      => 'required',
             'playlist'     => 'required',
+            'play_random'  => 'required',
             'status'       => 'required',
         ]);
 
@@ -151,6 +152,7 @@ class MainVideoController extends Controller
         $request->validate([
             'proj_id'      => 'required',
             'playlist'     => 'required',
+            'play_random'  => 'required',
             'status'       => 'required',
         ]);
 

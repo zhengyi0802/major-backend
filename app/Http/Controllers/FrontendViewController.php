@@ -138,7 +138,9 @@ class FrontendViewController extends Controller
                                ->orderBy('updated_at', 'desc')
                                ->first();
          if ($mainvideo) {
-             $videos = $mainvideo->toArray();
+             $svideos = $mainvideo->toArray();
+             $randvideos = collect($videos)->rand(sizeof($svideos));
+             $videos = $randvideos->all();
          }
 
          $bulletin = Bulletin::select('title')
@@ -162,7 +164,7 @@ class FrontendViewController extends Controller
                         'logo'       => ($logo) ? $logo->image : null,
                         'customLogo' => ($business) ? $business->logo_url : null,
                         'ad'         => ($advertising) ? $advertising->thumbnail : null,
-                        'videos'     => $mainvideo,
+                        'videos'     => $videos,
                         'bulletin'   => ($bulletin) ? $bulletin->title : null,
                         'apps'       => $apps,
                    );
@@ -215,7 +217,16 @@ class FrontendViewController extends Controller
                                ->first();
          $result = null;
          if ($mainvideo) {
-             $playlist = json_decode($mainvideo->playlist);
+             $aplaylist = json_decode($mainvideo->playlist);
+             if(sizeof($aplaylist) > 1) {
+                $cplaylist = collect($aplaylist);
+                $rplaylist = $cplaylist->random(sizeof($aplaylist)-1);
+                $dplaylist = $cplaylist->diff($rplaylist);
+                $cplaylist = $rplaylist->merge($dplaylist);
+                $playlist  = $cplaylist->all();
+             } else {
+                $playlist = $aplaylist;
+             }
              $result = array(
                        'type'        => $mainvideo->type,
                        'playlist'    => $playlist,
@@ -275,7 +286,7 @@ class FrontendViewController extends Controller
             'onekey'      => $onekey,
         );
         $response = json_encode($result);
-
+/*
         if ($product && ProductQuery::enabled()) {
             $record = array(
                       'product_id'  => $product->id,
@@ -285,7 +296,7 @@ class FrontendViewController extends Controller
             );
             ProductQuery::create($record);
         }
-
+*/
         return $response;
     }
 

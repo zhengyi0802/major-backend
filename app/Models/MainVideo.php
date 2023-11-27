@@ -12,6 +12,7 @@ class MainVideo extends Model
     protected $fillable = [
         'proj_id',
         'type',
+        'play_random',
         'playlist',
         'playlist_http',
         'description',
