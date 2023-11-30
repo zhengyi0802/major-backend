@@ -154,17 +154,6 @@ class ApiInterfaceController extends Controller
                               ->where('ether_mac', '=', $mac)
                               ->orWhere('wifi_mac', '=', $mac)
                               ->first();
-
-            if ($product == null) {
-                $arr = [
-                      'serialno'      => '',
-                      'ether_mac'     => '',
-                      'wifi_mac'      => $mac,
-                      'expire_date'   => '2025-12-31 00:00:00',
-                ];
-
-                return json_encode($arr);
-            }
         }
 
         if ($product == null) {
@@ -172,7 +161,7 @@ class ApiInterfaceController extends Controller
                       'serialno'      => '',
                       'ether_mac'     => '',
                       'wifi_mac'      => $mac,
-                      'expire_date'   => '2025-12-31 00:00:00',
+                      'expire_date'   => '2075-12-31 00:00:00',
              ];
 
              return json_encode($arr);
