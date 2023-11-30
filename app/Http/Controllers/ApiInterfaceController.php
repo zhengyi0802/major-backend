@@ -165,16 +165,19 @@ class ApiInterfaceController extends Controller
 
                 return json_encode($arr);
             }
-        } else {
-                $arr = [
-                      'serialno'      => null,
-                      'ether_mac'     => null,
-                      'wifi_mac'      => "112233445566",
-                      'expire_date'   => '2025-12-31 00:00:00',
-                ];
-                return json_encode($arr);
         }
 
+        if ($product == null) {
+             $arr = [
+                      'serialno'      => '',
+                      'ether_mac'     => '',
+                      'wifi_mac'      => $mac,
+                      'expire_date'   => '2025-12-31 00:00:00',
+             ];
+
+             return json_encode($arr);
+        }
+/*
         if ($product == null) {
             $PASS = '827GgqPxbwcnSCYbhtAbvaVDVfazAZXp';
             $str = 'index_bond'.$serialno.$wifi_mac.$ether_mac.$PASS;
@@ -186,6 +189,7 @@ class ApiInterfaceController extends Controller
                       );
             return json_encode($result);
         }
+*/
         $result = $product->toArray();
         unset($result['id']);
         $response = json_encode($result);
