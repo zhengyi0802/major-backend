@@ -257,7 +257,8 @@ class StartpageController extends Controller
                 $proj_id = $product->proj_id;
                 //var_dump($proj_id);
             } else {
-                return json_encode(null);
+                $proj = Project::where('is_default', true)->first();
+                $proj_id = $proj->id;
             }
         } else if ($request->input('id')) {
             $proj_id = $request->input('id');

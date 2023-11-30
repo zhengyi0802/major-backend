@@ -15,6 +15,7 @@ class Project extends Model
         'name',
         'descriptions',
         'status',
+        'is_default',
         'start_time',
         'stop_time',
     ];

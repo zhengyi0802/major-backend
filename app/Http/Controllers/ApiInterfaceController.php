@@ -156,7 +156,14 @@ class ApiInterfaceController extends Controller
                               ->first();
 
             if ($product == null) {
-                return json_encode(null);
+                $arr = [
+                      'serialno'      => null,
+                      'ether_mac'     => null,
+                      'wifi_mac'      => $mac,
+                      'expire_date'   => '2100/12/31',
+                ];
+
+                return json_encode($arr);
             }
         }
 
