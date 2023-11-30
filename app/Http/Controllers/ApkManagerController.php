@@ -244,15 +244,21 @@ class ApkManagerController extends Controller
             $mac = str_replace(':', '', $request->input('mac'));
             $mac = strtoupper($mac);
             $product = Product::where('ether_mac', $mac)->orWhere('wifi_mac', $mac)->first();
+/*
             if ($product == null) {
                 return json_encode(null);
             }
+*/
             if ($request->input('launcher')) {
                 $launcher = $request->input('launcher');
             } else {
                 $launcher = -1;
             }
-            $producttype = ProductType::where('id', $product->type_id)->first();
+            if ($product == null) {
+                $producttype = ProductType::find(14);
+            } else {
+                $producttype = ProductType::where('id', $product->type_id)->first();
+            }
             $type = $producttype->name;
             $result = $this->checkMAC($mac, $type, $launcher);
         } else if ($request->input('launcher')) {
