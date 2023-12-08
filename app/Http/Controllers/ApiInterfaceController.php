@@ -132,39 +132,63 @@ class ApiInterfaceController extends Controller
         $ether_mac = $request->input('ether_mac');
         $wifi_mac  = $request->input('wifi_mac');
         $mac       = $request->input('mac');
+        $aid       = $request->input('aid');
 
         if ($ether_mac) {
             $mac = str_replace(':', '', $ether_mac);
             $mac = strtoupper($mac);
-            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+            $product = Product::select('id', 'android_id','serialno', 'ether_mac', 'wifi_mac', 'expire_date')
                               ->where('ether_mac', '=', $mac)
                               ->first();
         } else if($wifi_mac) {
             $mac = str_replace(':', '', $wifi_mac);
             $mac = strtoupper($mac);
-            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+            $product = Product::select('id', 'android_id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
                               ->where('wifi_mac', '=', $mac)
                               ->first();
         } else if ($serialno) {
-            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+            $product = Product::select('id', 'android_id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
                               ->where('serialno', '=', $serialno)
                               ->first();
         } else if ($mac) {
-            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+            $product = Product::select('id', 'android_id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
                               ->where('ether_mac', '=', $mac)
                               ->orWhere('wifi_mac', '=', $mac)
                               ->first();
         }
+        if ($aid) {
+            $product = Product::select('id', 'android_id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+                              ->where('android_id', $aid)
+                              ->first();
+        }
 
         if ($product == null) {
-             $arr = [
-                      'serialno'      => '',
-                      'ether_mac'     => '',
-                      'wifi_mac'      => $mac,
+             $data = [
+                      'android_id'    => $aid,
+                      'serialno'      => $serialno,
+                      'ether_mac'     => $ether_mac,
+                      'wifi_mac'      => $wifi_mac,
+                      'type_id'       => 14,
+                      'proj_id'       => 9,
+                      'status_id'     => 1,
+                      'user_id'       => 2,
                       'expire_date'   => '2075-12-31 00:00:00',
              ];
-
+             $data1 = Product::create($data);
+             $arr = [
+                      'android_id'    => $data1['android_id'],
+                      'serlalno'      => $data1['serialno'],
+                      'ether_mac'     => $data1['ether_mac'],
+                      'wifi_mac'      => $data1['wifi_mac'],
+                      'expire_date'   => $data1['expire_date'],
+             ];
              return json_encode($arr);
+        } else {
+           if ($aid) {
+                $data = $product;
+                $data['android_id'] = $aid;
+                $product->update($data);
+           }
         }
 /*
         if ($product == null) {

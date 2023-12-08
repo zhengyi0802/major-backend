@@ -34,6 +34,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>{{ __('products.android_id') }} : </strong>
+                {{ $product->android_id }}
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>{{ __('products.project') }} : </strong>
                 {{ ($product->project != null) ? ($product->project->name) : "--------" }}
             </div>

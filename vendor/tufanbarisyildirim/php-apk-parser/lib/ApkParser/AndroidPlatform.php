@@ -43,6 +43,10 @@ define('ANDROID_API_PIE', 28);
 define('ANDROID_API_Q', 29);
 define('ANDROID_API_R', 30);
 define('ANDROID_API_S', 31);
+define('ANDROID_API_S_12L', 32);
+define('ANDROID_API_TIRAMISU', 33);
+define('ANDROID_API_UPSIDE_DOWN_CAKE', 34);
+
 /**
  *
  * @property $level
@@ -89,6 +93,9 @@ class AndroidPlatform
         ANDROID_API_Q => array('versions' => array('10.0'), 'url' => 'https://developer.android.com/about/versions/10/features'),
         ANDROID_API_R => array('versions' => array('11.0'), 'url' => 'https://developer.android.com/about/versions/11/features'),
         ANDROID_API_S => array('versions' => array('12.0'), 'url' => 'https://developer.android.com/about/versions/12/features'),
+        ANDROID_API_S_12L => array('versions' => array('12.0'), 'url' => 'https://developer.android.com/about/versions/12/features'),
+        ANDROID_API_TIRAMISU => array('versions' => array('13.0'), 'url' => 'https://developer.android.com/about/versions/13/features'),
+        ANDROID_API_UPSIDE_DOWN_CAKE => array('versions' => array('14.0'), 'url' => 'https://developer.android.com/about/versions/14/features')
     );
 
     public $level = null;

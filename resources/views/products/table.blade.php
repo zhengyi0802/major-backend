@@ -2,7 +2,7 @@
 $heads = [
     ['label' =>__('products.id'), 'width' => 10],
     __('products.project'),
-    __('products.serialno'),
+    __('products.android_id'),
     __('products.ether_mac'),
     __('products.wifi_mac'),
     __('products.expire_date'),
@@ -19,7 +19,7 @@ $config = [
         <tr>
             <td>{{ $product->id }}</td>
             <td>{{ $product->project? $product->project->name : null }}</td>
-            <td>{{ $product->serialno }}</td>
+            <td>{{ $product->android_id }}</td>
             <td>{{ $product->ether_mac }}</td>
             <td>{{ $product->wifi_mac }}</td>
             <td>{{ $product->expire_date }}</td>

@@ -48,6 +48,12 @@
                        {{ (auth()->user()->role == 'admin') ? null : 'disabled' }}>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>{{ __('products.android_id') }} : </strong>
+                    <input type="text" name="android_id" value="{{ $product->android_id }}" class="form-control">
+                </div>
+            </div>
            <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>{{ __('products.project') }} : </strong>

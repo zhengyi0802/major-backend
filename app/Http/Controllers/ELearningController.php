@@ -254,6 +254,26 @@ class ELearningController extends Controller
                               ->orWhere('wifi_mac', '=', $mac)
                               ->first();
 
+            if ($request->input('aid')) {
+                $aid = $request->input('aid');
+                if ($product) {
+                    $data = $product->toArray();
+                    $data['android_id'] = $request->input('aid');
+                    $product->update($data);
+                    $proj_id = $product->proj_id;
+                } else {
+                    $arr = [
+                         'android_id'   => $aid,
+                         'type_id'      => 14,
+                         'status_id'    => 1,
+                         'proj_id'      => 9,
+                         'user_id'      => 2,
+                         'expire_date'  => '2075-12-31 00:00:00',
+                    ];
+                    $product = Product::create($arr);
+                    $proj_id = 9;
+                }
+            }
             if ($product) {
                 $proj_id = $product->proj_id;
             } else {

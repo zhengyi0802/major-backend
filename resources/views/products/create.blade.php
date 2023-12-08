@@ -48,6 +48,12 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>{{ __('products.android_id') }} : </strong>
+                <input type="text" name="android_id" class="form-control" placeholder="A1234567890">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>{{ __('products.project') }} :</strong>
                 <select name="proj_id">
                    <option value="0">--------</optiion>

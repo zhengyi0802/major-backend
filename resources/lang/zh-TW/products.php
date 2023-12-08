@@ -5,6 +5,7 @@
          'header'         => '產品管理資料表',
          'details'        => '產品詳情',
          'id'             => '編號',
+         'android_id'     => 'Android ID',
          'type'           => '型號',
          'project'        => '專案名稱',
          'serialno'       => '序號',
