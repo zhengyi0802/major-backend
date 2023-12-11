@@ -246,6 +246,8 @@ class StartpageController extends Controller
 
     public function query(Request $request)
     {
+        $proj_id = $this->checkProject($request);
+/*
         if ($request->input('mac')) {
             $mac = str_replace(':', '', $request->input('mac'));
             $mac = strtoupper($mac);
@@ -290,7 +292,7 @@ class StartpageController extends Controller
                 $proj_id = $product1->proj_id;
             }
         }
-
+*/
         $datetime = date('y-m-d h:i:s');
         $startpage = Startpage::where('proj_id', $proj_id)
                                ->where('status', true)
@@ -323,6 +325,45 @@ class StartpageController extends Controller
         } else {
             return json_encode(null);
         }
+    }
+
+    function checkProject(Request $request)
+    {
+        $data = $request->all();
+        if (isset($data['mac'])) {
+            $mproduct = Product::where('ether_mac', $data['mac'])->orWhere('wifi_mac', $data['mac'])->first();
+        } else {
+            $mproduct = null;
+        }
+        if (isset($data['aid'])) {
+            $aproduct = Product::where('android_id', $data['aid'])->first();
+        } else {
+            $aproduct = null;
+            $aid = null;
+        }
+        if (isset($data['id'])) {
+            $proJ_id = $data['id'];
+        }
+        if ($aproduct != null) {
+            $proj_id = $aproduct->proj_id;
+        } else if ($mproduct != null) {
+            $proj_id = $mproduct->proj_id;
+            $mproduct->android_Id = $aid;
+            $mproduct->save();
+        } else {
+            $proj_id = Project::where('is_default', true)->first();
+            $arr = [
+                     'android_id'   => $aid,
+                     'type_id'      => 14,
+                     'status_id'    => 1,
+                     'proj_id'      => $proj_id,
+                     'user_id'      => 2,
+                     'expire_date'  => '2075-12-31 00:00:00',
+                   ];
+            $product = Product::create($arr);
+        }
+
+        return $proj_id;
     }
 
 }
