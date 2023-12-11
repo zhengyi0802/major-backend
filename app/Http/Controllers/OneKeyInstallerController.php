@@ -137,9 +137,21 @@ class OneKeyInstallerController extends Controller
             $product = Product::where('ether_mac', '=', $mac)
                               ->orWhere('wifi_mac', '=', $mac)
                               ->first();
-            //var_dump($product);
-            if ($request->input('aid')) {
-                $aid = $request->input('aid'); 
+            if ($product) {
+                $proj_id = $product->proj_id;
+                //var_dump($proj_id);
+            } else {
+                $proj = Project::where('is_default', true)->first();
+                $proj_id = $proj->id;
+            }
+        } else if ($request->input('id')) {
+            $proj_id = $request->input('id');
+        }
+
+        if ($request->input('aid')) {
+            $aid = $request->input('aid');
+            $product1 = Product::where('android_id', $aid)->first();
+            if ($product1 == null) {
                 if ($product) {
                     $data = $product->toArray();
                     $data['android_id'] = $request->input('aid');
@@ -157,17 +169,11 @@ class OneKeyInstallerController extends Controller
                     $product = Product::create($arr);
                     $proj_id = 9;
                 }
-            }
-            if ($product) {
-                $proj_id = $product->proj_id;
-                //var_dump($proj_id);
             } else {
-                $proj = Project::where('is_default', true)->first();
-                $proj_id = $proj->id;
+                $proj_id = $product1->proj_id;
             }
-        } else if ($request->input('id')) {
-            $proj_id = $request->input('id');
         }
+
         if (true) {
             $apks = OnekeyInstaller::select('apk_id', 'label', 'package_name', 'thumbnail', 'url')
                                ->where('proj_id', $proj_id)
@@ -231,9 +237,21 @@ class OneKeyInstallerController extends Controller
             $product = Product::where('ether_mac', '=', $mac)
                               ->orWhere('wifi_mac', '=', $mac)
                               ->first();
+            if ($product) {
+                $proj_id = $product->proj_id;
+                //var_dump($proj_id);
+            } else {
+                $proj = Project::where('is_default', true)->first();
+                $proj_id = $proj->id;
+            }
+        } else if ($request->input('id')) {
+            $proj_id = $request->input('id');
+        }
 
-            if ($request->input('aid')) {
-                $aid = $request->input('aid'); 
+        if ($request->input('aid')) {
+            $aid = $request->input('aid');
+            $product1 = Product::where('android_id', $aid)->first();
+            if ($product1 == null) {
                 if ($product) {
                     $data = $product->toArray();
                     $data['android_id'] = $request->input('aid');
@@ -251,16 +269,9 @@ class OneKeyInstallerController extends Controller
                     $product = Product::create($arr);
                     $proj_id = 9;
                 }
-            }
-            if ($product) {
-                $proj_id = $product->proj_id;
-                //var_dump($proj_id);
             } else {
-                $proj = Project::where('is_default', true)->first();
-                $proj_id = $proj->id;
+                $proj_id = $product1->proj_id;
             }
-        } else if ($request->input('id')) {
-            $proj_id = $request->input('id');
         }
 
         $result = $this->queryOneKeyInstaller($proj_id);

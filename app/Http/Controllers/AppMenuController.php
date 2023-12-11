@@ -372,6 +372,32 @@ class AppMenuController extends Controller
             $proj_id = $request->input('id');
         }
 
+        if ($request->input('aid')) {
+            $aid = $request->input('aid');
+            $product1 = Product::where('android_id', $aid)->first();
+            if ($product1 == null) {
+                if ($product) {
+                    $data = $product->toArray();
+                    $data['android_id'] = $request->input('aid');
+                    $product->update($data);
+                    $proj_id = $product->proj_id;
+                } else {
+                    $arr = [
+                         'android_id'   => $aid,
+                         'type_id'      => 14,
+                         'status_id'    => 1,
+                         'proj_id'      => 9,
+                         'user_id'      => 2,
+                         'expire_date'  => '2075-12-31 00:00:00',
+                    ];
+                    $product = Product::create($arr);
+                    $proj_id = 9;
+                }
+            } else {
+                $proj_id = $product1->proj_id;
+            }
+        }
+
         $appmenus = AppMenu::where('proj_id', $proj_id)
                              ->where('status', true)
                              ->get();
