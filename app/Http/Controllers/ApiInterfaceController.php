@@ -133,6 +133,7 @@ class ApiInterfaceController extends Controller
         $wifi_mac  = $request->input('wifi_mac');
         $mac       = $request->input('mac');
         $aid       = $request->input('aid');
+        $product   = null;
 
         if ($ether_mac) {
             $mac = str_replace(':', '', $ether_mac);
@@ -163,18 +164,23 @@ class ApiInterfaceController extends Controller
         }
 
         if ($product == null) {
+             $project = Project::where('is_default', true)->first();
              $data = [
                       'android_id'    => $aid,
                       'serialno'      => $serialno,
                       'ether_mac'     => $ether_mac,
                       'wifi_mac'      => $wifi_mac,
                       'type_id'       => 14,
-                      'proj_id'       => 9,
+                      'proj_id'       => $project->id,
                       'status_id'     => 1,
                       'user_id'       => 2,
                       'expire_date'   => '2075-12-31 00:00:00',
              ];
-             $data1 = Product::create($data);
+             if ($aid != null || $serialno != null || $ether_mac != null || $wifi_mac != null) {
+                 $data1 = Product::create($data);
+             } else {
+                 $data1 = $data;
+             }
              $arr = [
                       'android_id'    => $data1['android_id'],
                       'serlalno'      => $data1['serialno'],

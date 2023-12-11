@@ -199,11 +199,13 @@ class CustomerSupportController extends Controller
             $proj_id = $aproduct->proj_id;
         } else if ($mproduct != null) {
             $proj_id = $mproduct->proj_id;
-            $mproduct->android_Id = $aid;
+            $mproduct->android_id = $aid;
             $mproduct->save();
         } else {
-            $proj_id = Project::where('is_default', true)->first();
-            $arr = [
+            $project = Project::where('is_default', true)->first();
+            $proj_id = $project->id;
+            if ($aid != null) {
+                $arr = [
                      'android_id'   => $aid,
                      'type_id'      => 14,
                      'status_id'    => 1,
@@ -211,7 +213,8 @@ class CustomerSupportController extends Controller
                      'user_id'      => 2,
                      'expire_date'  => '2075-12-31 00:00:00',
                    ];
-            $product = Product::create($arr);
+                $product = Product::create($arr);
+            }
         }
 
         return $proj_id;
