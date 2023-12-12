@@ -39,6 +39,7 @@ use App\Http\Controllers\OneKeyInstallerController;
 use App\Http\Controllers\AppManagerController;
 use App\Http\Controllers\HotAppController;
 use App\Http\Controllers\ApiTestController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -372,3 +373,5 @@ Route::get('/apitests/query', [App\Http\Controllers\ApiTestController::class, 'q
        ->name('apitests.query');
 
 Route::resource('/apitests', ApiTestController::class);
+
+Route::resource('/registers', RegisterController::class);
