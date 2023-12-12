@@ -40,7 +40,7 @@
       font-size : 12px;
    }
 </style>
-<form id="catagory-form" action="{{ route('register.store') }}" method="POST" enctype="multipart/form-data">
+<form id="catagory-form" action="{{ route('registers.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -58,19 +58,23 @@
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.serialno') }} :</strong>
-                <input type="text" name="serialno" class="form-control" value="{{ $data['serialno']" >
+                <input type="text" name="serialno" class="form-control"
+                 value="{{ isset($register['serialno']) ? $register['serialno'] : null }}">
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.ether_mac') }} :</strong>
-                <input type="text" name="ether_mac" class="form-control" value="{{ $data['ether_mac'] }}" >
+                <input type="text" name="ether_mac" class="form-control"
+                 value="{{ isset($register['ether_mac']) ? $register['ether_mac'] : null }}">
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.wifi_mac') }} :</strong>
-                <input type="text" name="wifi_mac" class="form-control" value="{{ $data['wifi_mac'] }}" >
+                <input type="text" name="wifi_mac" class="form-control"
+                 value="{{ isset($register['wifi_mac']) ? $register['wifi_mac'] : null }}">
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.android_id') }} :</strong>
-                <input type="text" name="aid" class="form-control" value="{{ $data['aid'] }}" >
+                <input type="text" name="aid" class="form-control"
+                 value="{{ isset($register['aid']) ? $register['aid'] : null }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

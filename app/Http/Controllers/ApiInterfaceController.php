@@ -191,9 +191,8 @@ class ApiInterfaceController extends Controller
              return json_encode($arr);
         } else {
            if ($aid) {
-                $data = $product;
-                $data['android_id'] = $aid;
-                $product->update($data);
+                $product->android_id = $aid;
+                $product->save();
            }
         }
 /*

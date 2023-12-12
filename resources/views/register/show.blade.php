@@ -25,18 +25,18 @@
       <table>
         <tr>
             <td><x-adminlte-card title="{{ __('register.name') }}" theme="info" icon="fas fa-lg">
-                {{ $register->name }}
+                {{ $register['name'] }}
             </x-adminlte></td>
-            <td><x-adminlte-card title="{{ __('register.phone') }}" theme="warning" icon="fas fa-lg">
-                {{ $register->phone }}
+            <td><x-adminlte-card title="{{ __('register.phone') }}" theme="info" icon="fas fa-lg">
+                {{ $register['phone'] }}
             </x-adminlte-card></td>
-            <td><x-adminlte-card title="{{ __('register.register_date') }}" theme="warning" icon="fas fa-lg">
-                {{ $register->register_date }}
+            <td><x-adminlte-card title="{{ __('register.register_date') }}" theme="info" icon="fas fa-lg">
+                {{ $register['register_date'] }}
             </x-adminlte-card></td>
         </tr>
         <tr>
-            <td><x-adminlte-card title="{{ __('register.address') }}" theme="warning" icon="fas fa-lg">
-                {{ $register->address }}
+            <td colspan="3"><x-adminlte-card title="{{ __('register.address') }}" theme="info" icon="fas fa-lg">
+                {{ $register['address'] }}
             </x-adminlte-card></td>
         </tr>
       </table>
