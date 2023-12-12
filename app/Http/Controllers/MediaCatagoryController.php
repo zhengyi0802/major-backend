@@ -306,6 +306,7 @@ class MediaCatagoryController extends Controller
         }
         if (isset($data['aid'])) {
             $aproduct = Product::where('android_id', $data['aid'])->first();
+            $aid = $data['aid'];
         } else {
             $aproduct = null;
             $aid = null;

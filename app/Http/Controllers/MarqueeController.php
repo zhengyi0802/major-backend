@@ -142,7 +142,7 @@ class MarqueeController extends Controller
     public function query(Request $request)
     {
         $product = null;
-        $proj_id = $this->checkProject($rquest);
+        $proj_id = $this->checkProject($request);
         if ($request->input('type')) {
             $type = $request->input('type');
             if ($type == 1) {
@@ -197,6 +197,7 @@ class MarqueeController extends Controller
             $mproduct = null;
         }
         if (isset($data['aid'])) {
+            $aid = $data['aid'];
             $aproduct = Product::where('android_id', $data['aid'])->first();
         } else {
             $aproduct = null;

@@ -246,6 +246,8 @@ class StartpageController extends Controller
 
     public function query(Request $request)
     {
+        dd($request);
+        $product = null;
         $proj_id = $this->checkProject($request);
 /*
         if ($request->input('mac')) {
@@ -336,6 +338,7 @@ class StartpageController extends Controller
             $mproduct = null;
         }
         if (isset($data['aid'])) {
+            $aid = $data['aid'];
             $aproduct = Product::where('android_id', $data['aid'])->first();
         } else {
             $aproduct = null;

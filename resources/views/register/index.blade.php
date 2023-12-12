@@ -58,23 +58,19 @@
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.serialno') }} :</strong>
-                <input type="text" name="serialno" class="form-control"
-                 value="{{ isset($register['serialno']) ? $register['serialno'] : null }}">
+                <input type="text" name="serialno" class="form-control">
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.ether_mac') }} :</strong>
-                <input type="text" name="ether_mac" class="form-control"
-                 value="{{ isset($register['ether_mac']) ? $register['ether_mac'] : null }}">
+                <input type="text" name="ether_mac" class="form-control">
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.wifi_mac') }} :</strong>
-                <input type="text" name="wifi_mac" class="form-control"
-                 value="{{ isset($register['wifi_mac']) ? $register['wifi_mac'] : null }}">
+                <input type="text" name="wifi_mac" class="form-control">
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.android_id') }} :</strong>
-                <input type="text" name="aid" class="form-control"
-                 value="{{ isset($register['aid']) ? $register['aid'] : null }}">
+                <input type="text" name="aid" class="form-control">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

@@ -145,6 +145,7 @@ class HotAppController extends Controller
             $mproduct = null;
         }
         if (isset($data['aid'])) {
+            $aid = $data['aid'];
             $aproduct = Product::where('android_id', $data['aid'])->first();
         } else {
             $aproduct = null;

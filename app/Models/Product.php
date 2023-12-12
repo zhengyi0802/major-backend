@@ -43,4 +43,5 @@ class Product extends Model
     public function records() {
         return $this->hasMany(ProductRecord::class, 'product_id');
     }
+
 }
