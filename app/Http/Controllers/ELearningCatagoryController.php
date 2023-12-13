@@ -308,7 +308,10 @@ class ELearningCatagoryController extends Controller
     {
         $data = $request->all();
         if (isset($data['mac'])) {
-            $mproduct = Product::where('ether_mac', $data['mac'])->orWhere('wifi_mac', $data['mac'])->first();
+            $mac = str_replace(':', '', $data['mac']);
+            $mac = strtoupper($mac);
+            $mproduct = Product::where('ether_mac', '=', $mac)
+                               ->orWhere('wifi_mac', '=', $mac)->first();
         } else {
             $mproduct = null;
         }

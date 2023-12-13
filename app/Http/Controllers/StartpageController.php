@@ -246,7 +246,6 @@ class StartpageController extends Controller
 
     public function query(Request $request)
     {
-        dd($request);
         $product = null;
         $proj_id = $this->checkProject($request);
 /*
@@ -304,7 +303,7 @@ class StartpageController extends Controller
             $result = array(
                     'name'         => $startpage->name,
                     'mime_type'    => $startpage->mime_type,
-                    'url'          => $startpage->url,
+                6bccbe58d7b4329b    'url'          => $startpage->url,
                     'url2'         => $startpage->url_http,
                     'intervals'    => $startpage->intervals,
                     'start_time'   => $startpage->start_time,
@@ -319,7 +318,7 @@ class StartpageController extends Controller
                           'keywords'    => 'Startpage',
                           'query'       => $request->fullUrl(),
                           'response'    => $response,
-                );
+6bccbe58d7b4329b                );
                 ProductQuery::create($record);
             }
 */
@@ -333,7 +332,10 @@ class StartpageController extends Controller
     {
         $data = $request->all();
         if (isset($data['mac'])) {
-            $mproduct = Product::where('ether_mac', $data['mac'])->orWhere('wifi_mac', $data['mac'])->first();
+            $mac = str_replace(':', '', $data['mac']);
+            $mac = strtoupper($mac);
+            $mproduct = Product::where('ether_mac', '=', $mac)
+                               ->orWhere('wifi_mac', '=', $mac)->first();
         } else {
             $mproduct = null;
         }
@@ -359,6 +361,7 @@ class StartpageController extends Controller
             if ($aid != null) {
                 $arr = [
                      'android_id'   => $aid,
+                     'serialno'     => 'startpages',
                      'type_id'      => 14,
                      'status_id'    => 1,
                      'proj_id'      => $proj_id,

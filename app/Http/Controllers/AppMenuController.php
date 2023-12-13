@@ -370,7 +370,10 @@ class AppMenuController extends Controller
     {
         $data = $request->all();
         if (isset($data['mac'])) {
-            $mproduct = Product::where('ether_mac', $data['mac'])->orWhere('wifi_mac', $data['mac'])->first();
+            $mac = str_replace(':', '', $data['mac']);
+            $mac = strtoupper($mac);
+            $mproduct = Product::where('ether_mac', '=', $mac)
+                               ->orWhere('wifi_mac', '=', $mac)->first();
         } else {
             $mproduct = null;
         }
@@ -397,6 +400,7 @@ class AppMenuController extends Controller
             if ($aid != null) {
                 $arr = [
                      'android_id'   => $aid,
+                     'serialno'     => 'appmenu',
                      'type_id'      => 14,
                      'status_id'    => 1,
                      'proj_id'      => $proj_id,

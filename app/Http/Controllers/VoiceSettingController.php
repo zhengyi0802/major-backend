@@ -176,7 +176,11 @@ class VoiceSettingController extends Controller
     {
         $data = $request->all();
         if (isset($data['mac'])) {
-            $mproduct = Product::where('ether_mac', $data['mac'])->orWhere('wifi_mac', $data['mac'])->first();
+            $mac = str_replace(':', '', $data['mac']);
+            $mac = strtoupper($mac);
+            $mproduct = Product::where('ether_mac', '=', $mac)
+                               ->orWhere('wifi_mac', '=', $mac)
+                               ->first();
         } else {
             $mproduct = null;
         }
@@ -192,23 +196,26 @@ class VoiceSettingController extends Controller
         }
         if ($aproduct != null) {
             $proj_id = $aproduct->proj_id;
-        } else if ($mproduct != null) {
-            $proj_id = $mproduct->proj_id;
-            $mproduct->android_id = $aid;
-            $mproduct->save();
         } else {
-            $project = Project::where('is_default', true)->first();
-            $proj_id = $project->id;
-            if ($aid != null) {
-                $arr = [
-                     'android_id'   => $aid,
-                     'type_id'      => 14,
-                     'status_id'    => 1,
-                     'proj_id'      => $proj_id,
-                     'user_id'      => 2,
-                     'expire_date'  => '2075-12-31 00:00:00',
-                   ];
-                $product = Product::create($arr);
+            if ($mproduct != null) {
+                $proj_id = $mproduct->proj_id;
+                $mproduct->android_id = $aid;
+                $mproduct->save();
+            } else {
+                $project = Project::where('is_default', true)->first();
+                $proj_id = $project->id;
+                if ($aid != null) {
+                    $arr = [
+                         'android_id'   => $aid,
+                          'serialno'     => 'voicesetting',
+                          'type_id'      => 14,
+                          'status_id'    => 1,
+                          'proj_id'      => $proj_id,
+                          'user_id'      => 2,
+                          'expire_date'  => '2075-12-31 00:00:00',
+                    ];
+                    $product = Product::create($arr);
+                }
             }
         }
 

@@ -202,6 +202,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        ProductRecord::where('product_id', $product->id)->delete();
         $product->delete();
 
         return redirect()->route('products.index')

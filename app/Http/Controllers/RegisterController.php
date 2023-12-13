@@ -32,8 +32,10 @@ class RegisterController extends Controller
             $product->android_id = $aid;
             $product->save();
         }
-        $data['product_id'] = $product->id;
-        Warranty::create($data);
+        if ($project != null) {
+            $data['product_id'] = $product->id;
+            Warranty::create($data);
+        }
 
         return view('register.show', compact('register'));
     }
