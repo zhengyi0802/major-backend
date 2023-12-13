@@ -45,32 +45,20 @@
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group col-md-4">
-                <strong>{{ __('register.name') }} :<span class="must">{{ __('tables.must') }}</span></strong>
-                <input type="text" name="name" class="form-control">
-            </div>
-            <div class="form-group col-md-4">
                 <strong>{{ __('register.phone') }} :<span class="must">{{ __('tables.must') }}</span></strong>
                 <input type="text" name="phone" class="form-control">
             </div>
             <div class="form-group col-md-4">
-                <strong>{{ __('register.address') }} :<span class="must">{{ __('tables.must') }}</span></strong>
-                <input type="text" name="address" class="form-control">
-            </div>
-            <div class="form-group col-md-4">
-                <strong>{{ __('register.serialno') }} :</strong>
-                <input type="text" name="serialno" class="form-control">
+                <strong>{{ __('register.android_id') }} :</strong>
+                <input type="text" name="aid" class="form-control" value="{{ $register['aid'] }}" >
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.ether_mac') }} :</strong>
-                <input type="text" name="ether_mac" class="form-control">
+                <input type="text" name="ether_mac" class="form-control" value="{{ $register['ether_mac'] }}">
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.wifi_mac') }} :</strong>
-                <input type="text" name="wifi_mac" class="form-control">
-            </div>
-            <div class="form-group col-md-4">
-                <strong>{{ __('register.android_id') }} :</strong>
-                <input type="text" name="aid" class="form-control">
+                <input type="text" name="wifi_mac" class="form-control" value="{{ $register['wifi_mac'] }}">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -88,25 +76,13 @@
                $(element).val(value);
            },
            rules: {
-               name: {
-                  required: true
-               },
                phone: {
-                  required: true
-               },
-               address: {
                   required: true
                },
            },
            messages: {
-               name: {
-                  required: '姓名必填'
-               },
                phone: {
                   required: '電話必填'
-               },
-               address: {
-                  required: '地址必填'
                },
            },
            submitHandler: function(form) {

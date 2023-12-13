@@ -335,6 +335,7 @@ class MediaCatagoryController extends Controller
                      'proj_id'      => $proj_id,
                      'user_id'      => 2,
                      'expire_date'  => '2075-12-31 00:00:00',
+                     'query_string' => json_encode($data),
                    ];
                 $product = Product::create($arr);
             }

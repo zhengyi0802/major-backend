@@ -24,19 +24,11 @@
       <div class="col-xs-12 col-sm-12 col-md-12">
       <table>
         <tr>
-            <td><x-adminlte-card title="{{ __('register.name') }}" theme="info" icon="fas fa-lg">
-                {{ $register['name'] }}
-            </x-adminlte></td>
             <td><x-adminlte-card title="{{ __('register.phone') }}" theme="info" icon="fas fa-lg">
                 {{ $register['phone'] }}
             </x-adminlte-card></td>
             <td><x-adminlte-card title="{{ __('register.register_date') }}" theme="info" icon="fas fa-lg">
                 {{ $register['register_date'] }}
-            </x-adminlte-card></td>
-        </tr>
-        <tr>
-            <td colspan="3"><x-adminlte-card title="{{ __('register.address') }}" theme="info" icon="fas fa-lg">
-                {{ $register['address'] }}
             </x-adminlte-card></td>
         </tr>
       </table>

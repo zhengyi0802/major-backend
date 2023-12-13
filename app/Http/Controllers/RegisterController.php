@@ -9,9 +9,11 @@ use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     //
-    function index()
+    function index(Request $request)
     {
-        return view('register.index');
+        $register = $request->all();
+
+        return view('register.index', compact('register'));
     }
 
     function store(Request $request)

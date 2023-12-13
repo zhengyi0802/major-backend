@@ -44,21 +44,25 @@ class ApiInterfaceController extends Controller
         $ether_mac = $request->input('ether_mac');
         $wifi_mac = $request->input('wifi_mac');
         $serialno = $request->input('serialno');
+        $aid = $request->input('aid');
 
         //$mainurl = sprintf(env('RECHARGE_MAIN_URL'), $ether_mac, $wifi_mac, $serialno);
         $PASS = '827GgqPxbwcnSCYbhtAbvaVDVfazAZXp';
         $str = 'index_server'.$serialno.$wifi_mac.$ether_mac.$PASS;
         $enc = strtolower(md5($str));
         $url = 'https://shop.mdo.tw/index.php?route_url=index_server&SerialNo='.$serialno.'&wMAC='.$wifi_mac.'&eMAC='.$ether_mac.'&chackCode='.$enc;
+        $url1 = 'https://major.mdo.tw/registers?aid='. $aid.'&ether_mac='.$ether_mac.'&wifi_mac='.$wifi_mac;
 
         $main = array(
                 'title'  => env('RECHARGE_MAIN_TITLE'),
                 'url'    => $url,
         );
+
         $custom1 = array(
                 'title'  => env('RECHARGE_CUSTOM1_TITLE'),
-                'url'    => env('RECHARGE_CUSTOM1_URL'),
+                'url'    => $url1,
         );
+
         $custom2 = array(
                 'title'  => env('RECHARGE_CUSTOM2_TITLE'),
                 'url'    => env('RECHARGE_CUSTOM2_URL'),

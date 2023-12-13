@@ -19,6 +19,7 @@ class Product extends Model
        'wifi_mac',
        'proj_id',
        'expire_date',
+       'query_string',
        'status_id',
     ];
 

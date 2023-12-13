@@ -16,4 +16,5 @@
            'clear'       => '清除',
            'creator'     => '建立者',
            'confirm_delete' => '確認是否刪除本資料?',
+           'must'        => '(*必填)',
     ];
