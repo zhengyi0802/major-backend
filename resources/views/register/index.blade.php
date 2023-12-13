@@ -50,15 +50,15 @@
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.android_id') }} :</strong>
-                <input type="text" name="aid" class="form-control" value="{{ $register['aid'] }}" >
+                <input type="text" name="aid" class="form-control" value="{{ $register['aid'] }}"  disabled>
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.ether_mac') }} :</strong>
-                <input type="text" name="ether_mac" class="form-control" value="{{ $register['ether_mac'] }}">
+                <input type="text" name="ether_mac" class="form-control" value="{{ $register['ether_mac'] }}" disabled>
             </div>
             <div class="form-group col-md-4">
                 <strong>{{ __('register.wifi_mac') }} :</strong>
-                <input type="text" name="wifi_mac" class="form-control" value="{{ $register['wifi_mac'] }}">
+                <input type="text" name="wifi_mac" class="form-control" value="{{ $register['wifi_mac'] }}" disabled>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
