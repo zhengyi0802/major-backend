@@ -40,6 +40,7 @@ use App\Http\Controllers\AppManagerController;
 use App\Http\Controllers\HotAppController;
 use App\Http\Controllers\ApiTestController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\WarrantyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -375,3 +376,5 @@ Route::get('/apitests/query', [App\Http\Controllers\ApiTestController::class, 'q
 Route::resource('/apitests', ApiTestController::class);
 
 Route::resource('/registers', RegisterController::class);
+
+Route::resource('/warranties', WarrantyController::class);

@@ -65,4 +65,5 @@ return [
     'warning'                       => '警告',
     'information'                   => '訊息',
     'apitests'                      => 'API測試用',
+    'warranties'                    => '電子保固卡資料',
 ];

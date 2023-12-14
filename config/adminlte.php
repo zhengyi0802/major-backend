@@ -473,6 +473,12 @@ return [
                     'can'         => 'manager-only',
                 ],
                 [
+                    'text'        => 'warranties',
+                    'url'         => 'warranties',
+                    'label_color' => 'success',
+                    'can'         => 'manager-only',
+                ],
+                [
                     'text'        => 'productrecords',
                     'url'         => 'product_records',
                     'label_color' => 'success',
