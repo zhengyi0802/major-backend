@@ -58,10 +58,18 @@ class ApiInterfaceController extends Controller
                 'url'    => $url,
         );
 
-        $custom1 = array(
-                'title'  => env('RECHARGE_CUSTOM1_TITLE'),
-                'url'    => $url1,
-        );
+        $product = Product::where('wifi_mac', $wifi_mac)->first();
+        if (($product == null) || ($product->warranty == null)) {
+            $custom1 = array(
+                    'title'  => env('RECHARGE_CUSTOM1_TITLE'),
+                    'url'    => $url1,
+            );
+        } else {
+            $custom1 = array(
+                    'title'  => env('ANDROID_ID_TITLE'),
+                    'url'    => $aid,
+            );
+        }
 
         $custom2 = array(
                 'title'  => env('RECHARGE_CUSTOM2_TITLE'),

@@ -20,23 +20,21 @@ class RegisterController extends Controller
     {
         $data = $request->all();
         $register = $data;
+        $ether_mac = isset($data['ether_mac']) ? str_replace(':', '', $data['ether_mac']) : null;
+        $wifi_mac = isset($data['wifi_mac']) ? str_replace(':', '', $data['wifi_mac']) : null;
         $register['register_date'] = date('Y-m-d h-m-s');
-        $aid = $data['aid'];
-        $ether_mac = $data['ether_mac'];
-        $wifi_mac = $data['wifi_mac'];
-        $product = Product::when($aid != null, function($q) use($aid) {
-                     $q->where('android_id', $aid);})
-                  ->when($ether_mac != null, function($q) use($ether_mac) {
-                     $q->orWhere('ether_mac', $ether_mac);})
-                  ->when($wifi_mac != null, function($q) use($wifi_mac) {
-                     $q->orWhere('wifi_mac', $wifi_mac);})->first();
-        if ($product->android_id == null) {
-            $product->android_id = $aid;
-            $product->save();
-        }
-        if ($project != null) {
+        $aid = isset($data['aid']) ? $data['aid'] : null;
+        $ether_mac = strtoupper($ether_mac);
+        $wifi_mac = strtoupper($wifi_mac);
+        $product = Product::Where('wifi_mac', '=', $wifi_mac)->first();
+
+        if ($product != null) {
             $data['product_id'] = $product->id;
             Warranty::create($data);
+            if ($product->android_id == null) {
+                $product->android_id = $aid;
+                $product->save();
+            }
         }
 
         return view('register.show', compact('register'));

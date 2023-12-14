@@ -45,4 +45,7 @@ class Product extends Model
         return $this->hasMany(ProductRecord::class, 'product_id');
     }
 
+    public function warranty() {
+        return $this->hasOne(Warranty::class, 'product_id');
+    }
 }
