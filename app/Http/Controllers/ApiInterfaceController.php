@@ -154,7 +154,7 @@ class ApiInterfaceController extends Controller
                               ->where('ether_mac', '=', $ether_mac)
                               ->first();
         } else if($wifi_mac) {
-            $mac1 = str_replace(':', '', $wifi_mac1);
+            $mac1 = str_replace(':', '', $wifi_mac);
             $wifi_mac = strtoupper($mac1);
             $product = Product::select('id', 'android_id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
                               ->where('wifi_mac', '=', $wifi_mac)
