@@ -45,13 +45,15 @@ class ApiInterfaceController extends Controller
         $wifi_mac = $request->input('wifi_mac');
         $serialno = $request->input('serialno');
         $aid = $request->input('aid');
+        $test = $request->input('test');
+        if ($test == null) $test = 0;
 
         //$mainurl = sprintf(env('RECHARGE_MAIN_URL'), $ether_mac, $wifi_mac, $serialno);
         $PASS = '827GgqPxbwcnSCYbhtAbvaVDVfazAZXp';
         $str = 'index_server'.$serialno.$wifi_mac.$ether_mac.$PASS;
         $enc = strtolower(md5($str));
         $url = 'https://shop.mdo.tw/index.php?route_url=index_server&SerialNo='.$serialno.'&wMAC='.$wifi_mac.'&eMAC='.$ether_mac.'&chackCode='.$enc;
-        $url1 = 'https://major.mdo.tw/registers?aid='. $aid.'&ether_mac='.$ether_mac.'&wifi_mac='.$wifi_mac;
+        $url1 = 'https://major.mdo.tw/registers?ether_mac='.$ether_mac.'&wifi_mac='.$wifi_mac.'&aid='.$aid;
 
         $main = array(
                 'title'  => env('RECHARGE_MAIN_TITLE'),
@@ -59,7 +61,9 @@ class ApiInterfaceController extends Controller
         );
 
         $product = Product::where('wifi_mac', $wifi_mac)->first();
-        if (($product == null) || ($product->warranty == null)) {
+
+        //if (($product == null) || ($product->warranty == null) || ($test == 0)) {
+        if ( $test== 0 ) {
             $custom1 = array(
                     'title'  => env('RECHARGE_CUSTOM1_TITLE'),
                     'url'    => $url1,
@@ -67,7 +71,7 @@ class ApiInterfaceController extends Controller
         } else {
             $custom1 = array(
                     'title'  => env('ANDROID_ID_TITLE'),
-                    'url'    => $aid,
+                    'url'    => $aid ? $aid : '',
             );
         }
 

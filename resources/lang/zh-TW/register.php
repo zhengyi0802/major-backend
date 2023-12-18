@@ -10,5 +10,5 @@
         'ether_mac'      => '乙太網路MAC',
         'wifi_mac'       => 'Wifi MAC',
         'android_id'     => 'Android ID',
-        'register_date'  => '註冊時間',
+        'register_time'  => '註冊時間',
     ];

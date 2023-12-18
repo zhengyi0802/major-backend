@@ -27,8 +27,8 @@
             <td><x-adminlte-card title="{{ __('register.phone') }}" theme="info" icon="fas fa-lg">
                 {{ $register['phone'] }}
             </x-adminlte-card></td>
-            <td><x-adminlte-card title="{{ __('register.register_date') }}" theme="info" icon="fas fa-lg">
-                {{ $register['register_date'] }}
+            <td><x-adminlte-card title="{{ __('register.register_time') }}" theme="info" icon="fas fa-lg">
+                {{ $register['register_time'] }}
             </x-adminlte-card></td>
         </tr>
       </table>

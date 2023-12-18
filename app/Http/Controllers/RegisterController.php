@@ -11,9 +11,21 @@ class RegisterController extends Controller
     //
     function index(Request $request)
     {
-        $register = $request->all();
-
-        return view('register.index', compact('register'));
+        $data = $request->all();
+        $register = $data;
+        $ether_mac = isset($data['ether_mac']) ? str_replace(':', '', $data['ether_mac']) : null;
+        $wifi_mac = isset($data['wifi_mac']) ? str_replace(':', '', $data['wifi_mac']) : null;
+        $aid = isset($data['aid']) ? $data['aid'] : null;
+        $ether_mac = strtoupper($ether_mac);
+        $wifi_mac = strtoupper($wifi_mac);
+        $product = Product::Where('wifi_mac', '=', $wifi_mac)->first();
+        if ($product->warranty != null) {
+            $register['phone'] = $product->warranty->phone;
+            $register['register_time'] = $product->warranty->register_time;
+            return view('register.show', compact('register'));
+        } else {
+            return view('register.index', compact('register'));
+        }
     }
 
     function store(Request $request)
@@ -22,7 +34,7 @@ class RegisterController extends Controller
         $register = $data;
         $ether_mac = isset($data['ether_mac']) ? str_replace(':', '', $data['ether_mac']) : null;
         $wifi_mac = isset($data['wifi_mac']) ? str_replace(':', '', $data['wifi_mac']) : null;
-        $register['register_date'] = date('Y-m-d h-m-s');
+        $register['register_time'] = date('Y-m-d h-m-s');
         $aid = isset($data['aid']) ? $data['aid'] : null;
         $ether_mac = strtoupper($ether_mac);
         $wifi_mac = strtoupper($wifi_mac);
