@@ -11,4 +11,6 @@
         'wifi_mac'       => 'Wifi MAC',
         'android_id'     => 'Android ID',
         'register_time'  => '註冊時間',
+        'expire_date'    => '平台到期日',
+        'warranty_date'  => '保固期限',
     ];

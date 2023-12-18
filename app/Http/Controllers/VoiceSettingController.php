@@ -201,7 +201,7 @@ class VoiceSettingController extends Controller
                 $proj_id = $mproduct->proj_id;
                 $mproduct->android_id = $aid;
                 $mproduct->save();
-            } else {
+            } else if (false) {
                 $project = Project::where('is_default', true)->first();
                 $proj_id = $project->id;
                 if ($aid != null) {

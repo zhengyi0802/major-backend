@@ -62,22 +62,14 @@ class ApiInterfaceController extends Controller
 
         $product = Product::where('wifi_mac', $wifi_mac)->first();
 
-        //if (($product == null) || ($product->warranty == null) || ($test == 0)) {
-        if ( $test== 0 ) {
-            $custom1 = array(
-                    'title'  => env('RECHARGE_CUSTOM1_TITLE'),
-                    'url'    => $url1,
-            );
-        } else {
-            $custom1 = array(
-                    'title'  => env('ANDROID_ID_TITLE'),
-                    'url'    => $aid ? $aid : '',
-            );
-        }
+        $custom1 = array(
+                'title'  => env('RECHARGE_CUSTOM1_TITLE'),
+                'url'    => $url1,
+        );
 
         $custom2 = array(
                 'title'  => env('RECHARGE_CUSTOM2_TITLE'),
-                'url'    => env('RECHARGE_CUSTOM2_URL'),
+                'url'    => $aid ? $aid : '',
         );
 
         $result = array(
@@ -185,7 +177,7 @@ class ApiInterfaceController extends Controller
              $project = Project::where('is_default', true)->first();
              $data = [
                       'android_id'    => $aid,
-                      'serialno'      => "mac[".$mac."]",
+                      'serialno'      => "checkdate",
                       'ether_mac'     => $ether_mac,
                       'wifi_mac'      => $wifi_mac,
                       'type_id'       => 14,

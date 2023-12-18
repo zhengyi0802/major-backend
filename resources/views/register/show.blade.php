@@ -31,6 +31,19 @@
                 {{ $register['register_time'] }}
             </x-adminlte-card></td>
         </tr>
+        <tr>
+            <td><x-adminlte-card title="{{ __('register.warranty_date') }}" theme="info" icon="fas fa-lg">
+                {{ $register['warranty_date'] }}
+            </x-adminlte-card></td>
+            <td><x-adminlte-card title="{{ __('register.expire_date') }}" theme="info" icon="fas fa-lg">
+                @if ($register['type_id'] == 1 ||
+                     $register['type_id'] == 2 ||
+                     $register['type_id'] == 3 ||
+                     $register['type_id'] == 13 )
+                    {{ $register['expire_date'] }}
+                @endif
+            </x-adminlte-card></td>
+        </tr>
       </table>
       </div>
    </div>

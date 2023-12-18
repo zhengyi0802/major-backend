@@ -22,6 +22,9 @@ class RegisterController extends Controller
         if ($product->warranty != null) {
             $register['phone'] = $product->warranty->phone;
             $register['register_time'] = $product->warranty->register_time;
+            $register['expire_date'] = $product->expire_date;
+            $register['warranty_date'] = date('Y-m-d', strtotime('+3 years', strtotime($product->warranty->register_time)));
+            $register['type_id'] = $product->type_id;
             return view('register.show', compact('register'));
         } else {
             return view('register.index', compact('register'));
@@ -35,6 +38,9 @@ class RegisterController extends Controller
         $ether_mac = isset($data['ether_mac']) ? str_replace(':', '', $data['ether_mac']) : null;
         $wifi_mac = isset($data['wifi_mac']) ? str_replace(':', '', $data['wifi_mac']) : null;
         $register['register_time'] = date('Y-m-d h-m-s');
+        $register['expire_date'] = '';
+        $register['warranty_date'] = date('Y-m-d', strtotime('+3 years'));
+        $register['type_id'] = 14;
         $aid = isset($data['aid']) ? $data['aid'] : null;
         $ether_mac = strtoupper($ether_mac);
         $wifi_mac = strtoupper($wifi_mac);
