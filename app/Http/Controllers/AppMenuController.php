@@ -401,6 +401,7 @@ class AppMenuController extends Controller
                 $arr = [
                      'android_id'   => $aid,
                      'serialno'     => 'appmenu',
+                     'wifi_mac'     => $mac,
                      'type_id'      => 14,
                      'status_id'    => 1,
                      'proj_id'      => $proj_id,

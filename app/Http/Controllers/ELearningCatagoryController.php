@@ -337,6 +337,7 @@ class ELearningCatagoryController extends Controller
             if ($aid != null) {
                 $arr = [
                      'android_id'   => $aid,
+                     'wifi_mac'     => $mac,
                      'type_id'      => 14,
                      'status_id'    => 1,
                      'proj_id'      => $proj_id,
