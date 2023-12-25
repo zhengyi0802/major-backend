@@ -524,6 +524,13 @@ return [
             'icon' => 'fas fa-fw fa-random',
             'can'  => 'admin-only',
         ],
+        [
+            'text' => 'orders',
+            'url'  => 'orders',
+            'icon' => 'fas fa-fw fa-random',
+            'can'  => 'admin-only',
+        ],
+
 /*
         [
             'text' => 'resellers',

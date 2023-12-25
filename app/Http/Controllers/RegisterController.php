@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Warranty;
 use App\Models\Product;
+use App\Models\order;
+use App\Models\ShippingProcess;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -48,18 +50,25 @@ class RegisterController extends Controller
 
         if ($product != null) {
             $data['product_id'] = $product->id;
-            Warranty::create($data);
+            $warranty = Warranty::create($data);
             if ($product->android_id == null) {
                 $product->android_id = $aid;
                 $product->save();
             }
+            if ($warranty->order() != null) {
+                $order = $warranty->order();
+                $order->flow = 5;
+                $order->save();
+                $shipping = ShippingProcess::where('order_id', $order->id)->first();
+                if ($shipping != null) {
+                    $shipping->completion_time = $register['register_time'];
+                    $shipping->installer_id = 7;
+                    $shipping->save();
+                }
+            }
         }
 
         return view('register.show', compact('register'));
-    }
-
-    function queryOrder($phone)
-    {
     }
 
 }

@@ -9,6 +9,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $connection = 'sales2';
+
     protected $fillable = [
         'id',
         'customer_id',

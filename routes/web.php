@@ -41,6 +41,7 @@ use App\Http\Controllers\HotAppController;
 use App\Http\Controllers\ApiTestController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\WarrantyController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -378,3 +379,6 @@ Route::resource('/apitests', ApiTestController::class);
 Route::resource('/registers', RegisterController::class);
 
 Route::resource('/warranties', WarrantyController::class);
+
+Route::resource('/orders', OrderController::class);
+

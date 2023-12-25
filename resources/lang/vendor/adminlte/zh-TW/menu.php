@@ -66,4 +66,5 @@ return [
     'information'                   => '訊息',
     'apitests'                      => 'API測試用',
     'warranties'                    => '電子保固卡資料',
+    'orders'                        => '訂單資料表',
 ];
