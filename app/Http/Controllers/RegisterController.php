@@ -58,4 +58,8 @@ class RegisterController extends Controller
         return view('register.show', compact('register'));
     }
 
+    function queryOrder($phone)
+    {
+    }
+
 }

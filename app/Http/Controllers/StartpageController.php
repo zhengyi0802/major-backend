@@ -303,7 +303,7 @@ class StartpageController extends Controller
             $result = array(
                     'name'         => $startpage->name,
                     'mime_type'    => $startpage->mime_type,
-                6bccbe58d7b4329b    'url'          => $startpage->url,
+                    'url'          => $startpage->url,
                     'url2'         => $startpage->url_http,
                     'intervals'    => $startpage->intervals,
                     'start_time'   => $startpage->start_time,

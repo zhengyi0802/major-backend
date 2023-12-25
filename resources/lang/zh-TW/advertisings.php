@@ -6,7 +6,7 @@
         'id'             => '編號',
         'project'        => '專案名稱',
         'index'          => '順序',
-        'thumbnail'      => '圖片',
+        'thumbnail'      => '圖片(366px(w)*430px(h)',
         'link_url'       => '廣告圖片連結',
         'status'         => '狀態',
     ];
