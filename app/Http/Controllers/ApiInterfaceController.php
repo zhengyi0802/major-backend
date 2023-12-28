@@ -52,7 +52,7 @@ class ApiInterfaceController extends Controller
         $PASS = '827GgqPxbwcnSCYbhtAbvaVDVfazAZXp';
         $str = 'index_server'.$serialno.$wifi_mac.$ether_mac.$PASS;
         $enc = strtolower(md5($str));
-        $url = 'https://linkpay.tw/91047074';
+        $url = 'https://payment.ecpay.com.tw/QuickCollect/PayData?fEtiVc1q3oPUIoKmJc06FJ42zfyhqDA%2bb5GKdAN8vuQ%3d';
         $url1 = 'https://major.mdo.tw/registers?ether_mac='.$ether_mac.'&wifi_mac='.$wifi_mac.'&aid='.$aid;
 
         $main = array(

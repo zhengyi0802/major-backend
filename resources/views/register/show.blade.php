@@ -12,39 +12,41 @@
 </style>
 @section('content')
     <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h1>{{ __('tables.details') }}</h1>
-            </div>
-            @include('layouts.back')
-        </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12">
       <table>
-        <tr>
+         <tr>
+            <td><x-adminlte-card title="{{ __('register.name') }}" theme="info" icon="fas fa-lg">
+              {{ $register['name'] ?? '' }}
+            </x-adminlte-card></td>
             <td><x-adminlte-card title="{{ __('register.phone') }}" theme="info" icon="fas fa-lg">
-                {{ $register['phone'] }}
+              {{ $register['phone'] ?? '' }}
+             </x-adminlte-card></td>
+         </tr>
+         <tr>
+            <td><x-adminlte-card title="{{ __('register.model_id') }}" theme="info" icon="fas fa-lg">
+              {{ $register['modeL_id'] ?? '' }}
             </x-adminlte-card></td>
+            <td><x-adminlte-card title="{{ __('register.android_id') }}" theme="info" icon="fas fa-lg">
+              {{ $register['android_id'] ?? '' }}
+             </x-adminlte-card></td>
+         </tr>
+         <tr>
             <td><x-adminlte-card title="{{ __('register.register_time') }}" theme="info" icon="fas fa-lg">
-                {{ $register['register_time'] }}
+              {{ $register['register_time'] }}
             </x-adminlte-card></td>
-        </tr>
-        <tr>
             <td><x-adminlte-card title="{{ __('register.warranty_date') }}" theme="info" icon="fas fa-lg">
-                {{ $register['warranty_date'] }}
-            </x-adminlte-card></td>
-            <td><x-adminlte-card title="{{ __('register.expire_date') }}" theme="info" icon="fas fa-lg">
-                @if ($register['type_id'] == 1 ||
-                     $register['type_id'] == 2 ||
-                     $register['type_id'] == 3 ||
-                     $register['type_id'] == 13 )
-                    {{ $register['expire_date'] }}
-                @endif
-            </x-adminlte-card></td>
-        </tr>
+              {{ $register['warranty_date'] }}
+             </x-adminlte-card></td>
+         </tr>
       </table>
-      </div>
+    </div>
+@if ($register['type_id'] == 1 ||
+     $register['type_id'] == 2 ||
+     $register['type_id'] == 3 ||
+     $register['type_id'] == 13 )
+   <div class="row">
+      <x-adminlte-card title="{{ __('register.expire_date') }}" theme="info" icon="fas fa-lg">
+          {{ $register['expire_date'] }}
+      </x-adminlte-card><
    </div>
+@endif
 @endsection

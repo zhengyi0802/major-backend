@@ -13,4 +13,5 @@
         'register_time'  => '註冊時間',
         'expire_date'    => '平台到期日',
         'warranty_date'  => '保固期限',
+        'model_id'       => '產品型號',
     ];

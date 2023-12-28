@@ -27,6 +27,13 @@ class RegisterController extends Controller
             $register['expire_date'] = $product->expire_date;
             $register['warranty_date'] = date('Y-m-d', strtotime('+3 years', strtotime($product->warranty->register_time)));
             $register['type_id'] = $product->type_id;
+            $order = $product->warranty->order();
+            if ($order != null) {
+                $register['name'] = $order->name;
+                $product_id = $order->product_id;
+                $pm = ProductModel::find($product_id);
+                $register['model_id'] = $pm->model_id;
+            }
             return view('register.show', compact('register'));
         } else {
             return view('register.index', compact('register'));
