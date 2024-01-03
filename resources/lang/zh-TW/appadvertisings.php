@@ -8,6 +8,7 @@
         'interval'       => '間隔(s)',
         'thumbnail'      => '預覽圖片',
         'link_url'       => '應用程式連結',
+        'link_image'     => '連結到圖片',
         'status'         => '狀態',
     ];
 

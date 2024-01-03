@@ -8,6 +8,7 @@
         'index'          => '順序',
         'thumbnail'      => '圖片(366px(w)*430px(h)',
         'link_url'       => '廣告圖片連結',
+        'link_image'     => '鏈接到圖片',
         'status'         => '狀態',
     ];
 

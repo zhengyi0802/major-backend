@@ -79,6 +79,7 @@ class AppAdvertisingController extends Controller
         $appadvertising->proj_id  = $request->proj_id;
         $appadvertising->interval = $request->interval;
         $appadvertising->link_url = $request->link_url;
+        $appadvertising->link_image = $request->link_image;
         $appadvertising->status   = $request->status;
         $appadvertising->user_id  = $user->id;
 
@@ -88,6 +89,9 @@ class AppAdvertisingController extends Controller
                 return back()->with('image', $fileName);
             }
             $appadvertising->thumbnail = env('APP_URL').$file->file_path;
+        }
+        if ($appadvertising->link_image) {
+            $appadvertising->link_url = $appadvertising->thumbnail;
         }
         $appadvertising->save();
 
@@ -114,7 +118,9 @@ class AppAdvertisingController extends Controller
         } else {
             $data['thumbnail'] = $advertising->thumbnail;
         }
-
+        if ($data['link_image']) {
+            $data['link_url'] = $data['thumbnail'];
+        }
         $data['proj_id'] = $project->id;
         $data['user_id'] = $user->id;
         if ($appadvertising->id > 0) {
@@ -184,6 +190,7 @@ class AppAdvertisingController extends Controller
         $appadvertising->proj_id  = $request->proj_id;
         $appadvertising->interval = $request->interval;
         $appadvertising->link_url = $request->link_url;
+        $appadvertising->link_image = $request->link_image;
         $appadvertising->status   = $request->status;
 
         if ($request->file()) {
@@ -192,6 +199,9 @@ class AppAdvertisingController extends Controller
                 return back()->with('image', $fileName);
             }
             $appadvertising->thumbnail = env('APP_URL').$file->file_path;
+        }
+        if ($appadvertising->link_image) {
+            $appadvertising->link_url = $appadvertising->thumbnail;
         }
         $appadvertising->save();
 

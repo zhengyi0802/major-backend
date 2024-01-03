@@ -229,8 +229,10 @@ class MediaCatagoryController extends Controller
                 array_push($contents, $item);
         }
 
+        $projs[0] = 0;
+        $projs[1] = $proj_id;
         $mediacatagories = MediaCatagory::where('status', true)
-                                  ->where('proj_id', $proj_id)
+                                  ->whereIn('proj_id', $projs)
                                   ->orderBy('id', 'desc')
                                   ->get();
 

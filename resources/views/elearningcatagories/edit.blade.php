@@ -35,7 +35,7 @@
                 <div name="project_group" id="project_group" class="form-group">
                     <strong>{{ __('elearningcatagories.project') }} : </strong>
                     <select id="proj_id" name="proj_id" onchange="changeProject(this)">
-                          <option value="0" {{ ($elearningcatagory->proj_id == 0) ? "selected" : null }}>------</option>
+                          <option value="0" {{ ($elearningcatagory->proj_id == 0) ? "selected" : null }}>{{ __('elearningcatagories.project_all') }}</option>
                         @foreach($projects as $project)
                            <option value="{{ $project->id }}" {{ ($proj_id == $project->id) ? "selected" : null }}>
                              {{ $project->id . '-' . $project->name }}

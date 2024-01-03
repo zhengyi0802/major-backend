@@ -14,6 +14,7 @@ class Advertising extends Model
         'index',
         'thumbnail',
         'link_url',
+        'link_image',
         'status',
         'user_id',
     ];

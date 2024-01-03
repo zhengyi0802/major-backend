@@ -15,6 +15,7 @@ class AppAdvertising extends Model
         'name',
         'thumbnail',
         'link_url',
+        'link_image',
         'status',
         'user_id',
     ];

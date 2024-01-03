@@ -75,6 +75,13 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>{{ __('appadvertisings.link_image') }} :</strong>
+                <input type="radio" name="link_image" value="1" checked>{{ __('tables.status_on') }}
+                <input type="radio" name="link_image" value="0">{{ __('tables.status_off') }}
+            </div>
+         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>{{ __('appadvertisings.status') }} :</strong>
                 <input type="radio" name="status" value="1" checked>{{ __('tables.status_on') }}
                 <input type="radio" name="status" value="0">{{ __('tables.status_off') }}

@@ -161,8 +161,10 @@ class MarqueeController extends Controller
                                   ->get();
             }
         } else {
+            $projs[0] = 0;
+            $projs[1] = $proj_id;
             $marquees = Marquee::select('type', 'name', 'content', 'url')
-                        ->where('proj_id', $proj_id)
+                        ->whereIn('proj_id', $projs)
                         ->where('status', true)
                         ->orderBy('type', 'asc')
                         ->get();

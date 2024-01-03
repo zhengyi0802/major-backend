@@ -270,9 +270,11 @@ class ELearningCatagoryController extends Controller
             //echo "JSON String : ".json_encode($data[$elearningcatagory->id])."<br>--------------------<br>";
         }
 
+        $projs[0] = 0;
+        $projs[1] = $proj_id;
         $parents = ELearningCatagory::distinct()->select('parent_id')
                                   ->where('status', true)
-                                  ->where('proj_id', $proj_id)
+                                  ->whereIn('proj_id', $projs)
                                   ->orderBy('parent_id', 'desc')
                                   ->get();
 

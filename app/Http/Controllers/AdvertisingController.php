@@ -75,6 +75,7 @@ class AdvertisingController extends Controller
         $advertising->proj_id  = $request->proj_id;
         $advertising->index    = $request->index;
         $advertising->link_url = $request->link_url;
+        $advertising->link_image = $request->link_image;
         $advertising->status   = $request->status;
         $advertising->user_id  = $user->id;
 
@@ -84,6 +85,9 @@ class AdvertisingController extends Controller
                 return back()->with('image', $fileName);
             }
             $advertising->thumbnail = env('APP_URL').$file->file_path;
+        }
+        if ($advertising->link_image) {
+                $advertising->link_url = $advertising->thumbnail;
         }
         $advertising->save();
 
@@ -111,6 +115,9 @@ class AdvertisingController extends Controller
             $data['thumbnail'] = $advertising->thumbnail;
         }
 
+        if ($data['link_image']) {
+            $data['link_url'] = $data['thumbnail'];
+        }
         $data['proj_id'] = $project->id;
         $data['user_id'] = $user->id;
 
@@ -190,6 +197,7 @@ class AdvertisingController extends Controller
         $advertising->proj_id  = $request->proj_id;
         $advertising->index    = $request->index;
         $advertising->link_url = $request->link_url;
+        $advertising->link_image = $request->link_image;
         $advertising->status   = $request->status;
         $advertising->user_id  = $user->id;
 
@@ -199,6 +207,9 @@ class AdvertisingController extends Controller
                 return back()->with('image', $fileName);
             }
             $advertising->thumbnail = env('APP_URL').$file->file_path;
+        }
+        if ($advertising->link_image) {
+            $advertising->link_url = $advertising->thumbnail;
         }
         $advertising->save();
 
