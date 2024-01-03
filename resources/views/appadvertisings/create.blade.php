@@ -34,7 +34,7 @@
             <div class="form-group">
                 <strong>{{ __('appadvertisings.project') }} : </strong>
                 <select id="proj_id" name="proj_id" >
-                    <option value="0" style="background-color: blue">{{ __('projects.project_none') }}</option>
+                    <option value="0" style="background-color: blue" disabled>{{ __('projects.project_none') }}</option>
                     @foreach($projects as $project)
                        <option value="{{ $project->id }}">{{ $project->name }}</option>
                     @endforeach

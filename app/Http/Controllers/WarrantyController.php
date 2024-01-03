@@ -31,6 +31,11 @@ class WarrantyController extends Controller
         return redirect()->route('warranties.index');
     }
 
+    function show(Warranty $warranty)
+    {
+        return view('warranties.show', compact('warranty'));
+    }
+
     function update(Request $request, Warranty $warranty)
     {
         return redirect()->route('warranties.index');
@@ -38,6 +43,7 @@ class WarrantyController extends Controller
 
     function destroy(Warranty $warranty)
     {
+        $warranty->delete();
         return redirect()->route('warranties.index');
     }
 }

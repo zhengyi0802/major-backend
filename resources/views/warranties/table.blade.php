@@ -4,11 +4,12 @@ $heads = [
     __('warranties.android_id'),
     __('warranties.name'),
     __('warranties.phone'),
-    __('warranties.register_date'),
+    __('warranties.register_time'),
+    ['label' => __('tables.action'), 'no-export' => true, 'width' => 20],
 ];
 $config = [
     'order' => [[0, 'desc']],
-    'columns' => [null, null, null, null, null,],
+    'columns' => [null, null, null, null, null,  ['orderable' => false]],
     'language' => [ 'url' => '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json' ],
 ];
 @endphp
@@ -20,6 +21,14 @@ $config = [
             <td>{{ ($warranty->order()) ? $warranty->order()->name : $warranty->name }}</td>
             <td>{{ $warranty->phone }}</td>
             <td>{{ $warranty->register_time }}</td>
+            <td>
+                <form action="{{ route('warranties.destroy',$warranty->id) }}" method="POST">
+                    <a class="btn btn-info" href="{{ route('warranties.show', $warranty->id) }}">{{ __('tables.details') }}</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('{{ __('tables.confirm_delete') }}');">{{ __('tables.delete') }}</button>
+                </form>
+            </td>
         </tr>
         @endforeach
 </x-adminlte-datatable>

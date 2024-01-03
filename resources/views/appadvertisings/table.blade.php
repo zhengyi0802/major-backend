@@ -18,7 +18,7 @@ $config = [
         @foreach ($appadvertisings as $appadvertising)
         <tr>
             <td>{{ $appadvertising->id }}</td>
-            <td>{{ $appadvertising->project->name }}</td>
+            <td>{{ ($appadvertising->project) ? $appadvertising->project->name : null }}</td>
             <td>{{ $appadvertising->interval }}</td>
             <td><img src="{{ $appadvertising->thumbnail }}" width="320px" height="180px"></td>
             <td>{{ $appadvertising->user->name }}</td>
