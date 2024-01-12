@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Warranty;
 use App\Models\Product;
+use App\Models\ProductModel;
 use App\Models\order;
 use App\Models\ShippingProcess;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class RegisterController extends Controller
         $ether_mac = strtoupper($ether_mac);
         $wifi_mac = strtoupper($wifi_mac);
         $product = Product::Where('wifi_mac', '=', $wifi_mac)->first();
-        if ($product->warranty != null) {
+        if (($product != null) && ($product->warranty != null)) {
             $register['phone'] = $product->warranty->phone;
             $register['register_time'] = $product->warranty->register_time;
             $register['expire_date'] = $product->expire_date;
@@ -30,6 +31,7 @@ class RegisterController extends Controller
             $order = $product->warranty->order();
             if ($order != null) {
                 $register['name'] = $order->name;
+                $register['address'] = $order->address;
                 $product_id = $order->product_id;
                 $pm = ProductModel::find($product_id);
                 $register['model_id'] = $pm->model_id;
@@ -66,6 +68,8 @@ class RegisterController extends Controller
                 $order = $warranty->order();
                 $order->flow = 5;
                 $order->save();
+                $register['name'] = $order->name;
+                $register['address'] = $order->address;
                 $shipping = ShippingProcess::where('order_id', $order->id)->first();
                 if ($shipping != null) {
                     $shipping->completion_time = $register['register_time'];

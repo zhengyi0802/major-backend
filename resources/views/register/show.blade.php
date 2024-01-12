@@ -22,6 +22,11 @@
              </x-adminlte-card></td>
          </tr>
          <tr>
+            <td colspan="2"><x-adminlte-card title="{{ __('register.address') }}" theme="info" icon="fas fa-lg">
+              {{ $register['address'] ?? '' }}
+             </x-adminlte-card></td>
+         </tr>
+         <tr>
             <td><x-adminlte-card title="{{ __('register.model_id') }}" theme="info" icon="fas fa-lg">
               {{ $register['modeL_id'] ?? '' }}
             </x-adminlte-card></td>
@@ -35,8 +40,17 @@
             </x-adminlte-card></td>
             <td><x-adminlte-card title="{{ __('register.warranty_date') }}" theme="info" icon="fas fa-lg">
               {{ $register['warranty_date'] }}
-             </x-adminlte-card></td>
+            </x-adminlte-card></td>
          </tr>
+         <tr>
+            <td colspan="2"><h2>{{ __('register.company') }}</h3></td>
+         </td>
+         <tr>
+            <td colspan="2"><h3>{{ __('register.caddress') }}</h3></td>
+         </td>
+         <tr>
+            <td colspan="2"><h3>{{ __('register.cphone') }}</h3></td>
+         </td>
       </table>
     </div>
 @if ($register['type_id'] == 1 ||
