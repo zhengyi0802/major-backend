@@ -26,6 +26,7 @@ class Warranty extends Model
 
     public function productModel() {
         $order = Order::where('phone', $this->phone)->first();
+        if ($order == null) return null;
         $productModel = ProductModel::find($order->product_id);
         return $productModel;
     }

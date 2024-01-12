@@ -70,6 +70,9 @@ class RegisterController extends Controller
                 $order->save();
                 $register['name'] = $order->name;
                 $register['address'] = $order->address;
+                $product_id = $order->product_id;
+                $pm = ProductModel::find($product_id);
+                $register['model_id'] = $pm->model_id;
                 $shipping = ShippingProcess::where('order_id', $order->id)->first();
                 if ($shipping != null) {
                     $shipping->completion_time = $register['register_time'];
