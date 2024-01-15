@@ -86,6 +86,7 @@ class ApiInterfaceController extends Controller
         $serialno  = $request->input('serialno');
         $ether_mac = $request->input('ether_mac');
         $wifi_mac  = $request->input('wifi_mac');
+        $aid       = $request->input('aid');
         $mac       = $request->input('mac');
         $project_id = $request->input('project_id');
         $project = null;
@@ -99,7 +100,11 @@ class ApiInterfaceController extends Controller
             return $err;
         }
 
-        if ($ether_mac) {
+        if ($aid) {
+            $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')
+                              ->where('android_id', $aid)
+                              ->first();
+        } else if($ether_mac) {
             $mac1 = str_replace(':', '', $ether_mac);
             $mac1 = strtoupper($mac1);
             $product = Product::select('id', 'serialno', 'ether_mac', 'wifi_mac', 'expire_date')

@@ -156,6 +156,7 @@ class CustomerSupportController extends Controller
         $product = null;
         $proj_id = $this->checkProject($request);
         $customersupport = CustomerSupport::where('proj_id', $proj_id)
+                                          ->orWhere('proj_id', '9')
                                           ->where('status', true)
                                           ->select('qrcode_type', 'qrcode_content', 'message',
                                                    'rcapp_label', 'rcapp', 'rcapp_url', 'updated_at')

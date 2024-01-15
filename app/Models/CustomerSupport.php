@@ -17,6 +17,7 @@ class CustomerSupport extends Model
         'rcapp',
         'rcapp_label',
         'rcapp_url',
+        'is_default',
         'status',
         'user_id',
     ];
