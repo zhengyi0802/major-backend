@@ -8,7 +8,7 @@ $heads = [
 $config = [
     'order' => [[0, 'desc']],
     'columns' => [null, null, null, null],
-    'language' => [ 'url' => '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json' ],
+    'language' => [ 'url' => __('tables.language_url') ],
 ];
 @endphp
 <x-adminlte-datatable id="product-record-table" :heads="$heads" :config="$config" theme="info" striped hoverable >

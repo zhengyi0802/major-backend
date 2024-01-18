@@ -17,4 +17,5 @@
            'creator'     => '建立者',
            'confirm_delete' => '確認是否刪除本資料?',
            'must'        => '(*必填)',
+           'language_url' => '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json',
     ];

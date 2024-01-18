@@ -11,7 +11,7 @@ $heads = [
 $config = [
     'order' => [[0, 'desc']],
     'columns' => [null, null, null, null, null, null, ['orderable' => false]],
-    'language' => [ 'url' => '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json' ],
+    'language' => [ 'url' => __('tables.language_url') ],
 ];
 @endphp
 <x-adminlte-datatable id="advertisings-table" :heads="$heads" :config="$config" theme="info" head-theme="dark" striped hoverable bordered>
