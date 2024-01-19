@@ -1,13 +1,16 @@
 <?php
 
-     return [
-         'title'       => 'Projects',
-         'header'      => 'Projects',
-         'id'          => '編號',
-         'name'        => 'Name',
-         'description' => 'Descriptions',
-         'status'      => 'Status',
-         'start_time'  => 'Start Date/Time',
-         'stop_time'   => 'Stop Date/Time',
-     ];
-
+      return [
+          'title' => 'Project information table',
+          'header' => 'Project information table',
+          'id' => 'Project number',
+          'sales_id' => 'Remote system dealer number',
+          'rid' => 'Remote system project number',
+          'name' => 'Project name',
+          'description' => 'description',
+          'status' => 'status',
+          'start_time' => 'Start time',
+          'stop_time' => 'End time',
+          'project_all' => 'All projects',
+          'project_none' => 'No project selected (unavailable)',
+      ];

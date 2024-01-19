@@ -1,12 +1,11 @@
 <?php
 
-    return [
-        'header'         => 'Product Type',
-        'title'          => 'Product Type',
-        'id'             => 'Index',
-        'catagory'       => 'Catagory',
-        'name'           => 'Name',
-        'description'    => 'Descriptions',
-        'status'         => 'Status',
-    ];
-
+     return [
+         'header' => 'Product model information',
+         'title' => 'Product model data sheet',
+         'id' => 'number',
+         'catagory' => 'Product Category',
+         'name' => 'Model name',
+         'description' => 'description',
+         'status' => 'status',
+     ];

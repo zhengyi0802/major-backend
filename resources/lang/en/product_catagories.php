@@ -1,12 +1,9 @@
 <?php
-    return [
-          'title'       => 'Product Catagories',
-          'header'      => 'Product Catagories',
-          'id'          => 'ID',
-          'name'        => 'name',
-          'description' => 'description',
-    ];
 
-
-
-
+     return [
+            'title' => 'Product Category Data Sheet',
+            'header' => 'Product category information table',
+            'id' => 'number',
+            'name' => 'Product category name',
+            'description' => 'Product category description',
+     ];

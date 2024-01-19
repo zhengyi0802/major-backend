@@ -1,16 +1,16 @@
 <?php
 
-    return [
-        'title'          =>   'Frontend Views',
-        'header'         =>   'Frontend Views',
-        'logo`'          =>   'Mundi',
-        'banner'         =>   'Mundi Tech. Banner',
-        'datetime'       =>   'Date/Time',
-        'logo2'          =>   'Co-Logo',
-        'advistesting'   =>   'advertisting',
-        'announce'       =>   'announce',
-        'app'            =>   'App',
-        'network'        =>   'Network Settings',
-        'marquee'        =>   'Marquee',
-        'system'         =>   'System Settings',
-    ];
+     return [
+         'title' => 'Front desk homepage display page',
+         'header' => 'front page display page',
+         'logo`' => 'company trademark',
+         'banner' => 'Company banner advertisement',
+         'datetime' => 'datetime',
+         'logo2' => 'Corporate trademark',
+         'advistesting' => 'Corporate advertising',
+         'announce' => 'announcement',
+         'app' => 'Application',
+         'network' => 'Network settings',
+         'marquee' => 'marquee',
+         'system' => 'System information',
+     ];
