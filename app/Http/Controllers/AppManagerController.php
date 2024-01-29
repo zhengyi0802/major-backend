@@ -113,7 +113,16 @@ class AppManagerController extends Controller
 
     public function query(Request $request)
     {
-        if ($request->input('mac')) {
+        if ($request->input('aid')) {
+            $aid = $request->input('aid');
+            $product = Product::where('android_id', $aid)->first();
+            if ($product) {
+                $proj_id = $product->proj_id;
+            } else {
+                $proj = Project::where('is_default', true)->first();
+                $proj_id = $proj->id;
+            }
+        } else if ($request->input('mac')) {
             $mac = str_replace(':', '', $request->input('mac'));
             $mac = strtoupper($mac);
             $product = Product::where('ether_mac', '=', $mac)
