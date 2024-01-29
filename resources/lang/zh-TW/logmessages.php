@@ -10,6 +10,7 @@
         'android'        => '系統版本',
         'mac_eth'        => '乙太MAC',
         'mac_wifi'       => 'Wifi MAC',
+        'aid'            => 'Android ID',
         'sn'             => '機器序號',
         'action'         => '動作',
         'data'           => '訊息內容',

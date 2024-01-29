@@ -43,6 +43,12 @@
          </div>
          <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>{{ __('logmessages.aid') }} :</strong>
+                {{ $logmessage->aid }}
+            </div>
+         </div>
+         <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>{{ __('logmessages.mac_eth') }} :</strong>
                 {{ $logmessage->mac_eth }}
             </div>

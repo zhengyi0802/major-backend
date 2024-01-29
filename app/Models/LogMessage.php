@@ -16,6 +16,7 @@ class LogMessage extends Model
         'android',
         'mac_eth',
         'mac_wifi',
+        'aid',
         'sn',
         'action',
         'data',

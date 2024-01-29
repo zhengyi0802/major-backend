@@ -3,6 +3,7 @@ $heads = [
     ['label' =>__('logmessages.id'), 'width' => 10, ],
     __('logmessages.action'),
     __('logmessages.version_name'),
+    __('logmessages.aid'),
     __('logmessages.mac_eth'),
     __('logmessages.mac_wifi'),
     __('logmessages.created_at'),
@@ -10,7 +11,7 @@ $heads = [
 ];
 $config = [
     'order' => [[0, 'desc']],
-    'columns' => [null, null, null, null, null, null, ['orderable' => false]],
+    'columns' => [null, null, null, null, null, null, null, ['orderable' => false]],
     'language' => [ 'url' => __('tables.language_url') ],
 ];
 @endphp
@@ -20,6 +21,7 @@ $config = [
             <td>{{ $logmessage->id }}</td>
             <td>{{ $logmessage->action }}</td>
             <td>{{ $logmessage->version_name }}</td>
+            <td>{{ $logmessage->aid }}</td>
             <td>{{ $logmessage->mac_eth }}</td>
             <td>{{ $logmessage->mac_wifi }}</td>
             <td>{{ $logmessage->created_at }}</td>
