@@ -237,10 +237,53 @@ class ApkManagerController extends Controller
         return $result;
     }
 
+    public function checkAID($type, $launcher)
+    {
+        $result = null;
+        $packages = ApkManager::where('launcher_id', $launcher)
+                              ->where('status', true)
+                              ->orderBy('created_at', 'desc')
+                              ->get();
+
+        foreach($packages as $package) {
+                $types = json_decode($package->type_id);
+                if (is_array($types) && in_array($type, $types)) {
+                    $result = array (
+                          'label'                => $package->label,
+                          'package_name'         => $package->package_name,
+                          'package_version_name' => $package->package_version_name,
+                          'package_version_code' => $package->package_version_code,
+                          'sdk_version'          => $package->sdk_version,
+                          'icon'                 => $package->icon,
+                          'path'                 => $package->path,
+                          'description'          => $package->description,
+                          'created_at'           => $package->created_at,
+                        );
+                        break;
+                }
+        }
+        return $result;
+    }
+
     public function query(Request $request)
     {
         $result = null;
-        if ($request->input('mac')) {
+        if ($request->input('aid')) {
+            $aid = $request->input('aid');
+            $product = Product::where('android_id', $aid)->first();
+            if ($request->input('launcher')) {
+                $launcher = $request->input('launcher');
+            } else {
+                $launcher = -1;
+            }
+            if ($product == null) {
+                $producttype = ProductType::find(14);
+            } else {
+                $producttype = ProductType::where('id', $product->type_id)->first();
+            }
+            $type = $producttype->name;
+            $result = $this->checkAID($type, $launcher);
+        } else if ($request->input('mac')) {
             $mac = str_replace(':', '', $request->input('mac'));
             $mac = strtoupper($mac);
             $product = Product::where('ether_mac', $mac)->orWhere('wifi_mac', $mac)->first();
