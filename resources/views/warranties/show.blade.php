@@ -50,7 +50,7 @@
          </td>
          <tr>
             <td colspan="2"><h3>{{ __('register.cphone') }}</h3></td>
-         </td>
+         </tr>
       </table>
     </div>
 @endsection
