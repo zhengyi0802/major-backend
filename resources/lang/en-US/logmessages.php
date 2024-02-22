@@ -1,22 +1,18 @@
 <?php
 
-    return [
-        'header'         => '回傳訊息',
-        'title'          => '回傳訊息資料表',
-        'id'             => '編號',
-        'timestamp'      => '機器傳送時間',
-        'version_code'   => '版本編號',
-        'version_name'   => '版本名稱',
-        'android'        => '系統版本',
-        'mac_eth'        => '乙太MAC',
-        'mac_wifi'       => 'Wifi MAC',
-        'sn'             => '機器序號',
-        'action'         => '動作',
-        'data'           => '訊息內容',
-        'created_at'     => '建立日期',
-    ];
-
-
-
-
-
+     return [
+         'header' => 'Return message',
+         'title' => 'Return message data table',
+         'id' => 'number',
+         'timestamp' => 'Machine transmission time',
+         'version_code' => 'version number',
+         'version_name' => 'version name',
+         'android' => 'system version',
+         'mac_eth' => 'Ether MAC',
+         'mac_wifi' => 'Wifi MAC',
+         'sn' => 'Machine serial number',
+         'action' => 'action',
+         'data' => 'Message content',
+         'created_at' => 'Created date',
+         'aid'  => 'Android ID',
+     ];

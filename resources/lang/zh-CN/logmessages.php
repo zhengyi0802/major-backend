@@ -14,4 +14,5 @@
         'action'         => '动作',
         'data'           => '讯息内容',
         'created_at'     => '建立日期',
+        'aid'            => 'Android ID',
     ];

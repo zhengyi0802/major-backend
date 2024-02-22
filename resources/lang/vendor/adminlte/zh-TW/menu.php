@@ -66,4 +66,9 @@ return [
     'information'                   => '訊息',
     'apitests'                      => 'API測試用',
     'warranties'                    => '電子保固卡資料',
+    'Language'                      => '語言',
+    'English'                       => 'English',
+    'Tailand'                       => '泰國語言',
+    'Chinese(Simple)'               => '簡體中文',
+    'Chinese(Traditional)'          => '繁體中文',
 ];

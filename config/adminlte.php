@@ -229,6 +229,33 @@ return [
             'text'         => 'search',
             'topnav'       => false,
         ],
+        [
+            'text'         => 'Language',
+            'topnav_right' => true,
+            'icon'         => 'flag-icon flag-icon-us',
+            'submenu'      => [
+                [
+                     'text' => 'English',
+                     'icon' => 'flag-icon flag-icon-us',
+                     'url'  => 'lang/en-US',
+                ],
+                [
+                     'text' => 'Tailand',
+                     'icon' => 'flag-icon flag-icon-th',
+                     'url'  => 'lang/th',
+                ],
+                [
+                     'text' => 'Chinese(Simple)',
+                     'icon' => 'flag-icon flag-icon-cn',
+                     'url'  => 'lang/zh-CN',
+                ],
+                [
+                     'text' => 'Chinese(Traditional)',
+                     'icon' => 'flag-icon flag-icon-TW',
+                     'url'  => 'lang/zh-TW',
+                ],
+            ],
+        ],
 /*
         [
             'type'         => 'fullscreen-widget',

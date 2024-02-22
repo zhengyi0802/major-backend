@@ -21,7 +21,7 @@ $config = [
             <td>{{ $logmessage->id }}</td>
             <td>{{ $logmessage->action }}</td>
             <td>{{ $logmessage->version_name }}</td>
-            <td>{{ $logmessage->aid }}</td>
+            <td>{{ $logmessage->android_id }}</td>
             <td>{{ $logmessage->mac_eth }}</td>
             <td>{{ $logmessage->mac_wifi }}</td>
             <td>{{ $logmessage->created_at }}</td>

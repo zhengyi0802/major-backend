@@ -382,3 +382,9 @@ Route::resource('/warranties', WarrantyController::class);
 
 Route::resource('/orders', OrderController::class);
 
+Route::get('/lang/{lang}', function($lang) {
+    app()->setLocale($lang);
+    session()->put('locale', $lang);
+
+    return redirect()->back();
+});
