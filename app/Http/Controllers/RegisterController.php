@@ -21,7 +21,7 @@ class RegisterController extends Controller
         $aid = isset($data['aid']) ? $data['aid'] : null;
         $ether_mac = strtoupper($ether_mac);
         $wifi_mac = strtoupper($wifi_mac);
-        $product = Product::Where('wifi_mac', '=', $wifi_mac)->where('android_id', $aid)->first();
+        $product = Product::where('android_id', $aid)->first();
         if (($product != null) && ($product->warranty != null)) {
             $register['phone'] = $product->warranty->phone;
             $register['register_time'] = $product->warranty->register_time;
@@ -32,9 +32,9 @@ class RegisterController extends Controller
             if ($order != null) {
                 $register['name'] = $order->name;
                 $register['address'] = $order->address;
-                $product_id = $order->product_id;
-                $pm = ProductModel::find($product_id);
-                $register['model_id'] = $pm->model_id;
+                $register['model_id'] = $order->product->model;
+                //dd($order->product->model);
+                $register['android_id'] = $aid;
             }
             return view('register.show', compact('register'));
         } else {
@@ -55,8 +55,7 @@ class RegisterController extends Controller
         $aid = isset($data['aid']) ? $data['aid'] : null;
         $ether_mac = strtoupper($ether_mac);
         $wifi_mac = strtoupper($wifi_mac);
-        $product = Product::Where('wifi_mac', '=', $wifi_mac)->where('android_id', $aid)->first();
-
+        $product = Product::where('android_id', $aid)->first();
         if ($product != null) {
             $data['product_id'] = $product->id;
             $warranty = Warranty::create($data);
@@ -70,9 +69,9 @@ class RegisterController extends Controller
                 $order->save();
                 $register['name'] = $order->name;
                 $register['address'] = $order->address;
-                $product_id = $order->product_id;
-                $pm = ProductModel::find($product_id);
-                $register['model_id'] = $pm->model_id;
+                $productModel = $order->product->model;
+                $register['model_id'] = $productModel;
+                $register['android_id'] = $aid;
                 $shipping = ShippingProcess::where('order_id', $order->id)->first();
                 if ($shipping != null) {
                     $shipping->completion_time = $register['register_time'];

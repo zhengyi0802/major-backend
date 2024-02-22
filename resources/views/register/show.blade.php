@@ -28,7 +28,7 @@
          </tr>
          <tr>
             <td><x-adminlte-card title="{{ __('register.model_id') }}" theme="info" icon="fas fa-lg">
-              {{ $register['modeL_id'] ?? '' }}
+              {{ $register['model_id'] ?? '' }}
             </x-adminlte-card></td>
             <td><x-adminlte-card title="{{ __('register.android_id') }}" theme="info" icon="fas fa-lg">
               {{ $register['android_id'] ?? '' }}

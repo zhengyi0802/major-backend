@@ -29,4 +29,7 @@ class Order extends Model
         'created_by',
     ];
 
+    function product() {
+        return $this->belongsTo(ProductModel::class, 'product_id');
+    }
 }
