@@ -110,6 +110,9 @@ class HotAppController extends Controller
     {
         $product = null;
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $apks = HotApp::leftJoin('apk_managers', 'apk_id', 'apk_managers.id')
                                ->select('apk_managers.label', 'apk_managers.package_name',
                                         'apk_managers.icon as thumbnail', 'apk_managers.path as url')
@@ -139,6 +142,8 @@ class HotAppController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $proj_id = 0;
+        $mac = null;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

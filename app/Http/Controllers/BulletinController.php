@@ -310,6 +310,9 @@ class BulletinController extends Controller
         }
         $product = null;
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         if ($request->input('start')) {
             $start = $request->input('start');
         } else {
@@ -360,6 +363,8 @@ class BulletinController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $mac = null;
+        $proj_id = 0;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

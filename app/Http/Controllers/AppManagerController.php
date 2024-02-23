@@ -113,6 +113,7 @@ class AppManagerController extends Controller
 
     public function query(Request $request)
     {
+        $proj_id = 0;
         if ($request->input('aid')) {
             $aid = $request->input('aid');
             $product = Product::where('android_id', $aid)->first();
@@ -137,8 +138,12 @@ class AppManagerController extends Controller
             }
         } else if ($request->input('id')) {
             $proj_id = $request->input('id');
+        } else {
+            return json_encode(null);
         }
-
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $apks = AppManager::leftJoin('apk_managers', 'apk_id', 'apk_managers.id')
                           ->select('apk_managers.label', 'apk_managers.package_name',
                                    'apk_managers.icon as thumbnail', 'apk_managers.path as url',
@@ -153,6 +158,7 @@ class AppManagerController extends Controller
             return json_encode(null);
         }
         $response = json_encode($result);
+/*
         if ($product && ProductQuery::enabled()) {
             $record = array(
                       'product_id'  => $product->id,
@@ -162,7 +168,7 @@ class AppManagerController extends Controller
             );
             ProductQuery::create($record);
         }
-
+*/
         return $response;
     }
 

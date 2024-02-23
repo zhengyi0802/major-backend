@@ -155,6 +155,9 @@ class CustomerSupportController extends Controller
     {
         $product = null;
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $customersupport = CustomerSupport::where('proj_id', $proj_id)
                                           ->orWhere('proj_id', '9')
                                           ->where('status', true)
@@ -181,6 +184,8 @@ class CustomerSupportController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $proj_id = 0;
+        $mac=null;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

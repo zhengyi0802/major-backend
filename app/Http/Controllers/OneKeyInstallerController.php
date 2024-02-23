@@ -231,6 +231,7 @@ class OneKeyInstallerController extends Controller
 
     public function queryInstaller(Request $request)
     {
+        $proj_id = 0;
         if ($request->input('mac')) {
             $mac = str_replace(':', '', $request->input('mac'));
             $mac = strtoupper($mac);
@@ -273,7 +274,9 @@ class OneKeyInstallerController extends Controller
                 $proj_id = $product1->proj_id;
             }
         }
-
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $result = $this->queryOneKeyInstaller($proj_id);
         $response = json_encode($result);
         if ($product && ProductQuery::enabled()) {

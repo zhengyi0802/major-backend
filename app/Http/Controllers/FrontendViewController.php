@@ -137,12 +137,13 @@ class FrontendViewController extends Controller
                                ->where('status', true)
                                ->orderBy('updated_at', 'desc')
                                ->first();
+/*
          if ($mainvideo) {
              $svideos = $mainvideo->toArray();
-             $randvideos = collect($videos)->rand(sizeof($svideos));
+             $randvideos = collect($svideos)->rand(sizeof($svideos));
              $videos = $randvideos->all();
          }
-
+*/
          $bulletin = Bulletin::select('title')
                              ->where('proj_id', $id)
                              ->where('status', true)
@@ -164,7 +165,7 @@ class FrontendViewController extends Controller
                         'logo'       => ($logo) ? $logo->image : null,
                         'customLogo' => ($business) ? $business->logo_url : null,
                         'ad'         => ($advertising) ? $advertising->thumbnail : null,
-                        'videos'     => $videos,
+                        'videos'     => $mainvideo,
                         'bulletin'   => ($bulletin) ? $bulletin->title : null,
                         'apps'       => $apps,
                    );
@@ -260,6 +261,9 @@ class FrontendViewController extends Controller
     {
        $product = null;
        $proj_id = $this->checkProject($request);
+       if ($proj_id == 0) {
+           return json_encode(null);
+       }
        $customer   = $this->queryBusiness($proj_id);
        $ad         = $this->queryAdvertisings($proj_id);
        $videos     = $this->queryMainVideo($proj_id);
@@ -290,6 +294,8 @@ class FrontendViewController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $mac = null;
+        $proj_id = 0;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

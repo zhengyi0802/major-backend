@@ -336,6 +336,9 @@ class AppMenuController extends Controller
     public function query(Request $request)
     {
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $product = null;
         $appmenus = AppMenu::where('proj_id', $proj_id)
                              ->where('status', true)
@@ -369,6 +372,8 @@ class AppMenuController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $mac= null;
+        $proj_id = 0;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

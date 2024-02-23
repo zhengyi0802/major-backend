@@ -248,6 +248,9 @@ class StartpageController extends Controller
     {
         $product = null;
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
 /*
         if ($request->input('mac')) {
             $mac = str_replace(':', '', $request->input('mac'));
@@ -331,6 +334,8 @@ class StartpageController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $proj_id = 0;
+        $mac = null;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

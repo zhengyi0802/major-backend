@@ -223,6 +223,9 @@ class ELearningCatagoryController extends Controller
     {
         $product = null;
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $elearnings = ELearning::where('status', true)->orderBy('id', 'desc')->get();
         $contents = array();
         foreach ($elearnings as $elearning) {
@@ -309,6 +312,8 @@ class ELearningCatagoryController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $proj_id = 0;
+        $MAC = null;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

@@ -275,6 +275,8 @@ class MenuController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $mac= null;
+        $proj_id = 0;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

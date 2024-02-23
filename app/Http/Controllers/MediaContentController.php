@@ -242,6 +242,9 @@ class MediaContentController extends Controller
     {
         $product = null;
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $mediacontents = MediaContent::where('status', true)->orderBy('id', 'desc')->get();
         $contents = array();
         foreach ($mediacontents as $mediacontent) {
@@ -318,6 +321,8 @@ class MediaContentController extends Controller
     function checkProject(Request $request)
     {
         $data = $request->all();
+        $mac = null;
+        $proj_id = 0;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);

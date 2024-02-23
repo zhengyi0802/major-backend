@@ -153,6 +153,9 @@ class VoiceSettingController extends Controller
     {
         $product = null;
         $proj_id = $this->checkProject($request);
+        if ($proj_id == 0) {
+            return json_encode(null);
+        }
         $result = null;
         $voicesettings = VoiceSetting::select('keywords', 'label', 'package', 'link_url')->where('proj_id', $proj_id)->where('status', true)->get();
         if ($voicesettings) {
@@ -175,6 +178,8 @@ class VoiceSettingController extends Controller
    function checkProject(Request $request)
     {
         $data = $request->all();
+        $proj_id = 0;
+        $mac = null;
         if (isset($data['mac'])) {
             $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);
