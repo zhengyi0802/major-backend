@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '公告內容',
-        'title'          => '公告內容資料表',
+        'header'         => '訊息公告內容',
+        'title'          => '訊息公告內容資料表',
+        'table_name'     => '訊息公告內容',
         'id'             => '編號',
         'bulletin'       => '公告標題',
         'type'           => '媒體類型',

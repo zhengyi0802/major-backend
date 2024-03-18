@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '影音內容',
-        'title'          => '影音內容資料表',
+        'header'         => '影音搜尋內容',
+        'title'          => '影音搜尋內容資料表',
+        'table_name'     => '影音搜尋內容',
         'id'             => '編號',
         'catagory'       => '目錄',
         'name'           => '影音內容名稱',

@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '教學內容',
-        'title'          => '教學內容資料表',
+        'header'         => '企業媒體內容',
+        'title'          => '企業媒體內容資料表',
+        'table_name'     => '企業媒體內容',
         'id'             => '編號',
         'catagory'       => '目錄',
         'name'           => '教學內容名稱',

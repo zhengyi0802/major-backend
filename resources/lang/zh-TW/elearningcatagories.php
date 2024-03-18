@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '教學子目錄',
-        'title'          => '教學子目錄資料表',
+        'header'         => '企業媒體子目錄',
+        'title'          => '企業媒體子目錄資料表',
+        'table_name'     => '企業媒體子目錄',
         'id'             => '編號',
         'project'        => '專案名稱',
         'project_all'    => '全部專案',

@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '公告設定',
-        'title'          => '公告設定資料表',
+        'header'         => '訊息公告設定',
+        'title'          => '訊息公告設定資料表',
+        'table_name'     => '訊息公告',
         'id'             => '編號',
         'project'        => '專案名稱',
         'ftitle'         => '公告標題',

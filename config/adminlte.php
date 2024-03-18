@@ -232,26 +232,26 @@ return [
         [
             'text'         => 'Language',
             'topnav_right' => true,
-            'icon'         => 'flag-icon flag-icon-us',
+            'icon'         => 'fas fa-fw fa-flag',
             'submenu'      => [
                 [
                      'text' => 'English',
-                     'icon' => 'flag-icon flag-icon-us',
+                     'icon' => 'flag-icon flag-icon-us flag-icon-square',
                      'url'  => 'lang/en-US',
                 ],
                 [
                      'text' => 'Tailand',
-                     'icon' => 'flag-icon flag-icon-th',
+                     'icon' => 'flag-icon flag-icon-th flag-icon-square',
                      'url'  => 'lang/th',
                 ],
                 [
                      'text' => 'Chinese(Simple)',
-                     'icon' => 'flag-icon flag-icon-cn',
+                     'icon' => 'flag-icon flag-icon-cn flag-icon-square',
                      'url'  => 'lang/zh-CN',
                 ],
                 [
                      'text' => 'Chinese(Traditional)',
-                     'icon' => 'flag-icon flag-icon-TW',
+                     'icon' => 'flag-icon flag-icon-tw flag-icon-square',
                      'url'  => 'lang/zh-TW',
                 ],
             ],
@@ -708,6 +708,16 @@ return [
                     'type' => 'css',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                ],
+            ],
+        ],
+        'flagIconCss' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => 'vendor/flag-icon-css/css/flag-icon.css',
                 ],
             ],
         ],

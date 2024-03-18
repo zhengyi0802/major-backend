@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '常見問題',
-        'title'          => '常見問題資料表',
+        'header'         => '客服教學內容',
+        'title'          => '客服教學內容資料表',
+        'table_name'     => '客服教學內容',
         'id'             => '編號',
         'catagory'       => '類別',
         'question'       => '常見問題',

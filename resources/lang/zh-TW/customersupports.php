@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '客服相關設定',
-        'title'          => '客服相關設定資料表',
+        'header'         => '線上客服設定',
+        'title'          => '線上客服設定資料表',
+        'table_name'     => '線上客服',
         'id'             => '編號',
         'project'        => '專案名稱',
         'qrcode_type'    => 'QRCode類型',

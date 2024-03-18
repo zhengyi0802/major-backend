@@ -114,8 +114,10 @@ class AppManagerController extends Controller
     public function query(Request $request)
     {
         $proj_id = 0;
-        if ($request->input('aid')) {
-            $aid = $request->input('aid');
+        $mac = null;
+        $data = $request->all();
+        if (isset($data['aid'])) {
+            $aid = $data['aid'];
             $product = Product::where('android_id', $aid)->first();
             if ($product) {
                 $proj_id = $product->proj_id;
@@ -123,8 +125,8 @@ class AppManagerController extends Controller
                 $proj = Project::where('is_default', true)->first();
                 $proj_id = $proj->id;
             }
-        } else if ($request->input('mac')) {
-            $mac = str_replace(':', '', $request->input('mac'));
+        } else if (isset($data['mac'])) {
+            $mac = str_replace(':', '', $data['mac']);
             $mac = strtoupper($mac);
             $product = Product::where('ether_mac', '=', $mac)
                               ->orWhere('wifi_mac', '=', $mac)
@@ -136,14 +138,14 @@ class AppManagerController extends Controller
                 $proj = Project::where('is_default', true)->first();
                 $proj_id = $proj->id;
             }
-        } else if ($request->input('id')) {
+        } else if (isset($data['id'])) {
             $proj_id = $request->input('id');
-        } else {
-            return json_encode(null);
         }
+
         if ($proj_id == 0) {
             return json_encode(null);
         }
+
         $apks = AppManager::leftJoin('apk_managers', 'apk_id', 'apk_managers.id')
                           ->select('apk_managers.label', 'apk_managers.package_name',
                                    'apk_managers.icon as thumbnail', 'apk_managers.path as url',

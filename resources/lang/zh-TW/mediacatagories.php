@@ -1,8 +1,9 @@
 <?php
 
     return [
-        'header'         => '影音子目錄',
-        'title'          => '影音子目錄資料表',
+        'header'         => '影音搜尋子目錄',
+        'title'          => '影音搜尋子目錄資料表',
+        'table_name'     => '影音搜尋子目錄',
         'id'             => '編號',
         'project'        => '專案名稱',
         'parent'         => '上層目錄',
