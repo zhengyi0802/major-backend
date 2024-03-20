@@ -178,7 +178,7 @@ class BulletinController extends Controller
         $user = auth()->user();
 
         if ($user->role == 'admin') {
-            $bulletinItems = BulletinItem::where('bulletin_id', $bulletin->id)->get()->delete();
+            $bulletinItems = BulletinItem::where('bulletin_id', $bulletin->id)->get();
             $bulletin->delete();
         } else {
             $bulletin->status = false;
